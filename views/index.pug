@@ -1,0 +1,314 @@
+head
+    // Required meta tags
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    // Bootstrap CSS
+    link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous')
+    title Book Store
+    // Optional JavaScript
+    // jQuery first, then Popper.js, then Bootstrap JS
+    script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl' crossorigin='anonymous')
+    //Link CSS
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous")
+    link(rel="stylesheet" href="index.css")
+    link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css' integrity='sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay' crossorigin='anonymous')
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+    script(type="text/javascript").
+        //Get the button:
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            var mybutton = document.getElementById("myBtn");
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+body
+    button(onclick="topFunction()" id="myBtn" title="Go to top")
+        i(class="fas fa-arrow-up")
+    header.w-100.fixed-top
+        .container
+            nav.navbar.navbar-expand-lg.navbar-light
+                a.navbar-brand(href='/')
+                    img(src="logo.png" alt="Book Store logo")
+                button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNavDropdown' aria-controls='navbarNavDropdown' aria-expanded='false' aria-label='Toggle navigation')
+                    span.navbar-toggler-icon
+                #navbarNavDropdown.collapse.navbar-collapse
+                    ul.navbar-nav
+                        li.nav-item
+                            a.nav-link(href='#') HOME
+                        li.nav-item.dropdown
+                            a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+                                | BOOK
+                            .dropdown-menu.book(aria-labelledby='navbarDropdownMenuLink')
+                                div.row.navbar-custom
+                                    div.col-xl-4
+                                        .dropdown-item.book-type(href='#') CATEGORIES
+                                        a.dropdown-item(href='#') Action
+                                        a.dropdown-item(href='#') Another action
+                                        a.dropdown-item(href='#') Something else here
+                                        a.dropdown-item(href='#') Another action
+                                        a.dropdown-item(href='#') Something else here
+                                    div.col-xl-4
+                                        .dropdown-item.book-type(href='#') PRODUCT TYPES
+                                        a.dropdown-item(href='#') Action
+                                        a.dropdown-item(href='#') Another action
+                                        a.dropdown-item(href='#') Something else here
+                                        a.dropdown-item(href='#') Another action
+                                        a.dropdown-item(href='#') Something else here
+                                    div.col-xl-4
+                                        .dropdown-item.book-type(href='#') LATEST PRODUCT
+                                        a.dropdown-item(href='#') Action
+                                        a.dropdown-item(href='#') Another action
+                                        a.dropdown-item(href='#') Something else here
+                                        a.dropdown-item(href='#') Another action
+                                        a.dropdown-item(href='#') Something else here
+                        li.nav-item.dropdown
+                            a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+                                | E-BOOK
+                            .dropdown-menu.book(aria-labelledby='navbarDropdownMenuLink')
+                                div.row.navbar-custom
+                                    div.col-xl-4
+                                        .dropdown-item.book-type(href='#') CATEGORIES
+                                        a.dropdown-item(href='#') Action 2
+                                        a.dropdown-item(href='#') Another action 2
+                                        a.dropdown-item(href='#') Something else here
+                                        a.dropdown-item(href='#') Another action
+                                        a.dropdown-item(href='#') Something else here
+                                    div.col-xl-4
+                                        .dropdown-item.book-type(href='#') PRODUCT TYPES
+                                        a.dropdown-item(href='#') Action
+                                        a.dropdown-item(href='#') Another action
+                                        a.dropdown-item(href='#') Something else here
+                                        a.dropdown-item(href='#') Another action
+                                        a.dropdown-item(href='#') Something else here
+                                    div.col-xl-4
+                                        .dropdown-item.book-type(href='#') LATEST PRODUCT
+                                        a.dropdown-item(href='#') Action
+                                        a.dropdown-item(href='#') Another action
+                                        a.dropdown-item(href='#') Something else here
+                                        a.dropdown-item(href='#') Another action
+                                        a.dropdown-item(href='#') Something else here
+                        li.nav-item
+                            a.nav-link(href='#') BLOCK
+                        li.nav-item
+                            a.nav-link(href='#') CONTACT
+                    form.form-inline.my-2.my-lg-0.search-bar
+                        .input-icons
+                            i(class="fas fa-search icon")
+                            input(class="input-field form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search")
+    #carouselExampleIndicators.carousel.slide(data-ride='carousel' data-interval="4000")
+        ol.carousel-indicators
+            li.active(data-target='#carouselExampleIndicators' data-slide-to='0')
+            li(data-target='#carouselExampleIndicators' data-slide-to='1')
+            li(data-target='#carouselExampleIndicators' data-slide-to='2')
+            li(data-target='#carouselExampleIndicators' data-slide-to='3')
+        .carousel-inner
+            .carousel-item.active
+                img.d-block.w-100(src='slide1.jpg' alt='First slide')
+            .carousel-item
+                img.d-block.w-100(src='slide2.jpg' alt='Second slide')
+            .carousel-item
+                img.d-block.w-100(src='slide3.jpg' alt='Third slide')
+            .carousel-item
+                img.d-block.w-100(src='slide4.jpg' alt='Third slide')
+        a.carousel-control-prev(href='#carouselExampleIndicators' role='button' data-slide='prev')
+            span.carousel-control-prev-icon(aria-hidden='true')
+            span.sr-only Previous
+        a.carousel-control-next(href='#carouselExampleIndicators' role='button' data-slide='next')
+            span.carousel-control-next-icon(aria-hidden='true')
+            span.sr-only Next
+    .container
+        .row.container-1
+            .col-xl-3.col-md-6
+                .tag-icon
+                    em(class="fas fa-truck")
+                    p 30-DAYS RETURN
+            .col-xl-3.col-md-6
+                .tag-icon
+                    em(class="fas fa-money-bill-alt")
+                    p FREE SHIPPING
+            .col-xl-3.col-md-6
+                .tag-icon
+                    em(class="far fa-calendar-alt")
+                    p CUSTOMER CARE
+            .col-xl-3.col-md-6
+                .tag-icon
+                    em(class="fas fa-shield-alt")
+                    p SAFE SHIPPING
+    .container
+        .row.container-2
+            .wrap-1
+                h3 FEATURED PRODUCT
+            .wrap-2.row 
+                .col-xl-3.col-lg-6.product
+                    .product-head
+                        a(href="#")
+                            img(src="book8.png", alt="Book")
+                        .product-head-hover
+                            a(href="#")
+                    .product-tail
+                        a(href="#")
+                            h4 Life Style
+                        .row
+                            .col-6.price  $300
+                            .col-6.sale-price  $250
+                .col-xl-3.col-lg-6.product
+                    .product-head
+                        a(href="#")
+                            img(src="book6.png", alt="Book")
+                        .product-head-hover
+                            a(href="#")
+                    .product-tail
+                        a(href="#")
+                            h4 Vacation
+                        .row
+                            .col-6.price  $250
+                            .col-6.sale-price  $200
+                .col-xl-3.col-lg-6.product
+                    .product-head
+                        a(href="#")
+                            img(src="book1.png", alt="Book")
+                        .product-head-hover
+                            a(href="#")
+                    .product-tail
+                        a(href="#")
+                            h4 Business
+                        .row
+                            .col-6.price  $250
+                            .col-6.sale-price  $180
+                .col-xl-3.col-lg-6.product
+                    .product-head
+                        a(href="#")
+                            img(src="book2.png", alt="Book")
+                        .product-head-hover
+                            a(href="#")
+                    .product-tail
+                        a(href="#")
+                            h4 Cooking
+                        .row
+                            .col-6.price  $180
+                            .col-6.sale-price  $100
+    .container
+        .row.container-2
+            .wrap-1-Blog
+                h3 LATEST FROM OUT BLOG
+            .wrap-2-Blog.row 
+                .col-xl-4.col-md-12.blog
+                    .product-head-blog
+                        a(href="#")
+                            img(src="blog1.jpg", alt="blog-img")
+                    .product-tail-blog
+                        a(href="#")
+                            h4 A Collection Of Poem
+                        h5 dd-mm-yyyy
+                        p Nulla eleifend vel risus eget ultricies. Praesent sed tortor sem. Vestibulum...
+                        button(type="button" class="btn btn-info") Read More
+                .col-xl-4.col-md-12.blog
+                    .product-head-blog
+                        a(href="#")
+                            img(src="blog2.jpg", alt="blog-img")
+                    .product-tail-blog
+                        a(href="#")
+                            h4 Top Selling Book
+                        h5 dd-mm-yyyy
+                        p Nulla eleifend vel risus eget ultricies. Praesent sed tortor sem. Vestibulum...
+                        button(type="button" class="btn btn-info") Read More
+                .col-xl-4.col-md-12.blog
+                    .product-head-blog
+                        a(href="#")
+                            img(src="blog3.jpg", alt="blog-img")
+                    .product-tail-blog
+                        a(href="#")
+                            h4 Top Book To Read
+                        h5 dd-mm-yyyy
+                        p Nulla eleifend vel risus eget ultricies. Praesent sed tortor sem. Vestibulum...
+                        button(type="button" class="btn btn-info") Read More
+    .container.brand
+        #carouselExampleIndicators2.carousel.slide.brandSlide(data-ride='carousel' data-interval="4000")
+            ol.carousel-indicators
+                li.active(data-target='#carouselExampleIndicators2' data-slide-to='0')
+                li(data-target='#carouselExampleIndicators2' data-slide-to='1')
+                li(data-target='#carouselExampleIndicators2' data-slide-to='2')
+                li(data-target='#carouselExampleIndicators2' data-slide-to='3')
+            .carousel-inner
+                .carousel-item.active.row
+                    img.d-inline-block.col-3(src='logo1.png' alt='First slide')
+                    img.d-inline-block.col-3(src='logo2.png')
+                    img.d-inline-block.col-3(src='logo3.png')
+                    img.d-inline-block.col-3(src='logo4.png')
+                .carousel-item
+                    img.d-inline-block.col-3(src='logo1.png' alt='First slide')
+                    img.d-inline-block.col-3(src='logo2.png')
+                    img.d-inline-block.col-3(src='logo3.png')
+                    img.d-inline-block.col-3(src='logo4.png')
+                .carousel-item
+                    img.d-inline-block.col-3(src='logo1.png' alt='First slide')
+                    img.d-inline-block.col-3(src='logo2.png')
+                    img.d-inline-block.col-3(src='logo3.png')
+                    img.d-inline-block.col-3(src='logo4.png')
+                .carousel-item
+                    img.d-inline-block.col-3(src='logo1.png' alt='First slide')
+                    img.d-inline-block.col-3(src='logo2.png')
+                    img.d-inline-block.col-3(src='logo3.png')
+                    img.d-inline-block.col-3(src='logo4.png')
+            a.carousel-control-prev(href='#carouselExampleIndicators2' role='button' data-slide='prev')
+                span.carousel-control-prev-icon(aria-hidden='true')
+                span.sr-only Previous
+            a.carousel-control-next(href='#carouselExampleIndicators2' role='button' data-slide='next')
+                span.carousel-control-next-icon(aria-hidden='true')
+                span.sr-only Next
+    .footer
+        .container-fluid.row 
+            .col-6
+                h4 About Company
+                .title-line 
+                p Pellentesque mi purus, eleifend sedt commodo vel, sagittis elts vestibulum dui sagittis mlste sagittis elts.
+                ul.address-info 
+                    li
+                        i(class="fas fa-map-marker-alt")   15 Barnes Wallis Way, 358744, USA
+                    li 
+                        i(class="fas fa-phone")    +1 (012) 345 6789 
+                    li
+                        i(class="fas fa-envelope")   info@yourdomain.com
+            .col-6 
+                h4 Twitter Feed!
+                .title-line 
+                ul.customer-sp
+                    li 
+                        i(class="fas fa-angle-right")
+                            a(href="#") Customer Support
+                    li 
+                        i(class="fas fa-angle-right")
+                            a(href="#") Documentation
+                    li 
+                        i(class="fas fa-angle-right")
+                            a(href="#") Developer Center
+                    li 
+                        i(class="fas fa-angle-right")
+                            a(href="/FAQs") General FAQs
+        .container-fluid.Copyright.row
+            .col-6.copyRight-title
+                h5 Copyright © 2021 Phuoc Tran. All rights reserved.
+            .col-6
+                ul.social-list 
+                    li.social-app
+                        i(class="fab fa-facebook-square fa-3x")
+                    li.social-app
+                        i(class="fab fa-instagram fa-3x")
+                    li.social-app
+                        i(class="fab fa-youtube fa-3x")
+                    li.social-app
+                        i(class="fab fa-twitter-square fa-3x")
