@@ -91,6 +91,17 @@ header {
     text-align: center;
 }
 
+.logIn {
+    font-size: larger;
+    font-weight: 700;
+    color: white;
+}
+
+.logIn:hover {
+    text-decoration: none;
+    color: white;
+}
+
 /* Container-1 custom */
 .container-1 {
     min-height: 150px;
