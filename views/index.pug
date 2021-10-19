@@ -48,7 +48,7 @@ body
                 #navbarNavDropdown.collapse.navbar-collapse
                     ul.navbar-nav
                         li.nav-item
-                            a.nav-link(href='#') HOME
+                            a.nav-link(href='/') HOME
                         li.nav-item.dropdown
                             a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
                                 | BOOK
@@ -110,8 +110,9 @@ body
                             i(class="fas fa-search icon")
                             input(class="input-field form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search")
                     i.px-2(class="fas fa-user-circle fa-3x")
-                    a.px-2(class="logIn" href="#") LOG IN 
-                    button.px-2(type="button" class="btn btn-dark") SIGN UP
+                    a.px-2(class="logIn" href="/LogIn") LOG IN 
+                    button.px-2(type="button" class="btn btn-dark") 
+                        a.logIn(href="/signUp") SIGN UP
                     
     #carouselExampleIndicators.carousel.slide(data-ride='carousel' data-interval="4000")
         ol.carousel-indicators
