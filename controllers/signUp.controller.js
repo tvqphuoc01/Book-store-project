@@ -5,8 +5,7 @@ const userSignUp = function(req, res) {
   res.render('signUp');
 };
 
-const createNewUser = function(req, res) {
-  console.log(req.body);
+const createNewUser = async function(req, res) {
   // eslint-disable-next-line new-cap
   const newUser = new userModel({
     email: req.body.email,
@@ -16,7 +15,6 @@ const createNewUser = function(req, res) {
     phone: req.body.phone,
   });
   newUser.save();
-  console.log(newUser);
   res.redirect('/');
 };
 

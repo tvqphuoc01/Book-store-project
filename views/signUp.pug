@@ -117,22 +117,22 @@ head
           form(action='/signUp' method='POST')
             .form-group.first
               label(for='email') Email
-              input#email.form-control(type='email' name='email')
+              input#email.form-control(type='email' name='email' required)
             .form-group
               label(for='username') Username
-              input#password.form-control(type='text' name='username')
+              input#password.form-control(type='text' name='username' required)
             .form-group
               label(for='password') Password
-              input#password.form-control(type='password' name='password')
+              input#password.form-control(type='password' name='password' required)
             .form-group
               label(for='re-password') Re-type Password
-              input#re-password.form-control(type='password' name='Repassword')
+              input#re-password.form-control(type='password' name='Repassword' required)
             .form-group
               label(for='address') Address
-              input#password.form-control(type='text' name='address')
+              input#password.form-control(type='text' name='address' required)
             .form-group.last.mb-3
               label(for='phone') Phone
-              input#password.form-control(type='text' name='phone')
+              input#password.form-control(type='text' name='phone' required)
             .d-flex.mb-5.align-items-center
               label.control.control--checkbox.mb-3.mb-sm-0
                 span.caption
