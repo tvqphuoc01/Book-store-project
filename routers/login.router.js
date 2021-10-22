@@ -4,6 +4,10 @@ const router = express.Router();
 
 const loginController = require('../controllers/login.controller');
 
+const loginValidate = require('../validate/login.validate');
+
 router.get('/', loginController.userLogin);
+
+router.post('/', loginValidate.loginValidate, loginController.loginPost);
 
 module.exports = router;

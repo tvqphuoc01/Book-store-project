@@ -86,7 +86,7 @@ head
                   i(class="fas fa-search icon")
                   input(class="input-field form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search")
           i.px-2(class="fas fa-user-circle fa-3x")
-          a.px-2(class="logIn" href="/LogIn") LOG IN 
+          a.px-2(class="logIn" href="/logIn") LOG IN 
           button.px-2(type="button" class="btn btn-dark") 
             a.logIn(href="/signUp") SIGN UP
   .d-flex.justify-content-center.h-100
@@ -97,21 +97,25 @@ head
           span
             i.fab.fa-facebook-square
           span
-            i.fab.fa-google-plus-square
+            a(href="/signUp/google")
+              i.fab.fa-google-plus-square
       .card-body
-        form
+        if errors
+            each error in errors
+              .alert.alert-danger= error
+        form(action="/logIn" method="POST")
           .input-group.form-group
             .input-group-prepend
               span.input-group-text
                 i.fas.fa-user
-            input.form-control(type='text' placeholder='username')
+            input.form-control(type='text' placeholder='username' name='username' required)
           .input-group.form-group
             .input-group-prepend
               span.input-group-text
                 i.fas.fa-key
-            input.form-control(type='password' placeholder='password')
+            input.form-control(type='password' placeholder='password' name='password' required)
           .row.align-items-center.remember
-            input(type='checkbox')
+            input(type='checkbox' name='remember')
             | Remember Me
           .form-group
             input.btn.float-right.login_btn(type='submit' value='Login')

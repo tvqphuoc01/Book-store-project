@@ -107,7 +107,7 @@ header {
 }
 
 .card{
-    height: 370px;
+    min-height: 370px;
     margin-top: auto;
     margin-bottom: auto;
     width: 400px;
