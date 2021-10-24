@@ -29,7 +29,7 @@ module.exports.loginValidate = async function(req, res, next) {
           userData._id.valueOf(), // Cookie Values
           // Cookie Expires day
           {
-            expires: new Date(Date.now() + 9000000),
+            expires: new Date(Date.now() + 900000000), // 10 Days
             httpOnly: true,
             signed: true,
           },
