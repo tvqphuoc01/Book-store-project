@@ -23,8 +23,8 @@ app.use(session({
   saveUninitialized: false,
 }));
 
-// Passport congif
-require('./conifg/passport')(passport);
+// Passport config
+require('./config/passport')(passport);
 
 // Partport middleware
 app.use(passport.initialize());

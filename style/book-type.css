@@ -36,6 +36,11 @@ header {
     cursor: pointer;
 }
 
+.product-head img {
+    max-width: 100% !important;
+    max-height: 270px !important;
+}
+
 .navbar-custom a:hover {
     color: white;
     background-color: #e39602;
@@ -278,8 +283,8 @@ header {
 }
 
 .product-head-hover {
-    width: 80%;
-    height: 75%;
+    width: 100%;
+    height: 80%;
     display: block;
     position: absolute;
 }

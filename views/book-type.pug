@@ -58,14 +58,14 @@ body
                             .dropdown-menu.book(aria-labelledby='navbarDropdownMenuLink')
                                 div.row.navbar-custom
                                     div.col-xl-6
-                                        .dropdown-item.book-type(href='#') FICTION BOOK
-                                        a.dropdown-item(href='#') Crime and Mystery
-                                        a.dropdown-item(href='#') Fantasy
-                                        a.dropdown-item(href='#') Model Fiction
-                                        a.dropdown-item(href='#') Romace
-                                        a.dropdown-item(href='#') Adventure
+                                        .dropdown-item.book-type FICTION BOOK
+                                        a.dropdown-item(href='/bookType?type=Crime-and-Mystery') Crime and Mystery
+                                        a.dropdown-item(href='/bookType?type=Fantasy') Fantasy
+                                        a.dropdown-item(href='/bookType?type=Model-Fiction') Model Fiction
+                                        a.dropdown-item(href='/bookType?type=Romace') Romace
+                                        a.dropdown-item(href='/bookType?type=Adventure') Adventure
                                     div.col-xl-6
-                                        .dropdown-item.book-type(href='#') NON-FICTION BOOK
+                                        .dropdown-item.book-type NON-FICTION BOOK
                                         a.dropdown-item(href='#') Biography and True Story
                                         a.dropdown-item(href='#') English Language Teaching
                                         a.dropdown-item(href='#') Personal Development
@@ -153,7 +153,7 @@ body
                 .col-xl-3.col-lg-6.product
                     .product-head
                         a(href="/bookPage?id=6175266874d07fbdecd2d0fe")
-                            img(src="book8.png", alt="Book")
+                            img(src="book8.1.jpg", alt="Book")
                         .product-head-hover
                             a(href="/bookPage?id=6175266874d07fbdecd2d0fe")
                     .product-tail
@@ -164,24 +164,24 @@ body
                             .col-6.sale-price  $250
                 .col-xl-3.col-lg-6.product
                     .product-head
-                        a(href="#")
-                            img(src="book6.png", alt="Book")
+                        a(href="/bookPage?id=6176e7d44eeda0568864ec60")
+                            img(src="book1.jpg", alt="Book")
                         .product-head-hover
-                            a(href="#")
+                            a(href="/bookPage?id=6176e7d44eeda0568864ec60")
                     .product-tail
-                        a(href="#")
+                        a(href="/bookPage?id=6176e7d44eeda0568864ec60")
                             h4 Vacation
                         .row
                             .col-6.price  $250
                             .col-6.sale-price  $200
                 .col-xl-3.col-lg-6.product
                     .product-head
-                        a(href="#")
-                            img(src="book1.png", alt="Book")
+                        a(href="/bookPage?id=6176ec554eeda0568864ec61")
+                            img(src="book2.jpg", alt="Book")
                         .product-head-hover
-                            a(href="#")
+                            a(href="/bookPage?id=6176ec554eeda0568864ec61")
                     .product-tail
-                        a(href="#")
+                        a(href="/bookPage?id=6176ec554eeda0568864ec61")
                             h4 Business
                         .row
                             .col-6.price  $250
@@ -198,56 +198,6 @@ body
                         .row
                             .col-6.price  $180
                             .col-6.sale-price  $100
-            .wrap-2.row 
-                .col-xl-3.col-lg-6.product
-                    .product-head
-                        a(href="/bookPage?id=6175266874d07fbdecd2d0fe")
-                            img(src="book8.png", alt="Book")
-                        .product-head-hover
-                            a(href="/bookPage?id=6175266874d07fbdecd2d0fe")
-                    .product-tail
-                        a(href="/bookPage?id=6175266874d07fbdecd2d0fe")
-                            h4 Life Style
-                        .row
-                            .col-6.price  $300
-                            .col-6.sale-price  $250
-                .col-xl-3.col-lg-6.product
-                    .product-head
-                        a(href="#")
-                            img(src="book6.png", alt="Book")
-                        .product-head-hover
-                            a(href="#")
-                    .product-tail
-                        a(href="#")
-                            h4 Vacation
-                        .row
-                            .col-6.price  $250
-                            .col-6.sale-price  $200
-                .col-xl-3.col-lg-6.product
-                    .product-head
-                        a(href="#")
-                            img(src="book1.png", alt="Book")
-                        .product-head-hover
-                            a(href="#")
-                    .product-tail
-                        a(href="#")
-                            h4 Business
-                        .row
-                            .col-6.price  $250
-                            .col-6.sale-price  $180
-                .col-xl-3.col-lg-6.product
-                    .product-head
-                        a(href="#")
-                            img(src="book2.png", alt="Book")
-                        .product-head-hover
-                            a(href="#")
-                    .product-tail
-                        a(href="#")
-                            h4 Cooking
-                        .row
-                            .col-6.price  $180
-                            .col-6.sale-price  $100
-            .wrap-2.row 
                 .col-xl-3.col-lg-6.product
                     .product-head
                         a(href="/bookPage?id=6175266874d07fbdecd2d0fe")
@@ -296,23 +246,71 @@ body
                         .row
                             .col-6.price  $180
                             .col-6.sale-price  $100
-                .wrap-2
-                    nav(aria-label='Page navigation example')
-                        ul.pagination
-                            li.page-item
-                                a.page-link(href='#' aria-label='Previous')
-                                    span(aria-hidden='true') &laquo;
-                                    span.sr-only Previous
-                            li.page-item
-                                a.page-link(href='#') 1
-                            li.page-item
-                                a.page-link(href='#') 2
-                            li.page-item
-                                a.page-link(href='#') 3
-                            li.page-item
-                                a.page-link(href='#' aria-label='Next')
-                                    span(aria-hidden='true') &raquo;
-                                    span.sr-only Next
+                .col-xl-3.col-lg-6.product
+                    .product-head
+                        a(href="/bookPage?id=6175266874d07fbdecd2d0fe")
+                            img(src="book8.png", alt="Book")
+                        .product-head-hover
+                            a(href="/bookPage?id=6175266874d07fbdecd2d0fe")
+                    .product-tail
+                        a(href="/bookPage?id=6175266874d07fbdecd2d0fe")
+                            h4 Life Style
+                        .row
+                            .col-6.price  $300
+                            .col-6.sale-price  $250
+                .col-xl-3.col-lg-6.product
+                    .product-head
+                        a(href="#")
+                            img(src="book6.png", alt="Book")
+                        .product-head-hover
+                            a(href="#")
+                    .product-tail
+                        a(href="#")
+                            h4 Vacation
+                        .row
+                            .col-6.price  $250
+                            .col-6.sale-price  $200
+                .col-xl-3.col-lg-6.product
+                    .product-head
+                        a(href="#")
+                            img(src="book1.png", alt="Book")
+                        .product-head-hover
+                            a(href="#")
+                    .product-tail
+                        a(href="#")
+                            h4 Business
+                        .row
+                            .col-6.price  $250
+                            .col-6.sale-price  $180
+                .col-xl-3.col-lg-6.product
+                    .product-head
+                        a(href="#")
+                            img(src="book2.png", alt="Book")
+                        .product-head-hover
+                            a(href="#")
+                    .product-tail
+                        a(href="#")
+                            h4 Cooking
+                        .row
+                            .col-6.price  $180
+                            .col-6.sale-price  $100
+            .wrap-2
+                nav(aria-label='Page navigation example')
+                    ul.pagination
+                        li.page-item
+                            a.page-link(href='#' aria-label='Previous')
+                                span(aria-hidden='true') &laquo;
+                                span.sr-only Previous
+                        li.page-item
+                            a.page-link(href='#') 1
+                        li.page-item
+                            a.page-link(href='#') 2
+                        li.page-item
+                            a.page-link(href='#') 3
+                        li.page-item
+                            a.page-link(href='#' aria-label='Next')
+                                span(aria-hidden='true') &raquo;
+                                span.sr-only Next
 
     .footer
         .container-fluid.row 

@@ -35,6 +35,12 @@ head
             document.body.scrollTop = 0; // For Safari
             document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
         }
+
+        function modifyState() {
+            let stateObj = { id: "100" };
+            window.history.replaceState(stateObj,
+                        "Page 3", "/page3.html");
+        }
 body
     button(onclick="topFunction()" id="myBtn" title="Go to top")
         i(class="fas fa-arrow-up")
