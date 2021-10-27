@@ -6,4 +6,6 @@ const bookTypeController = require('../controllers/book-type.controller');
 
 router.get('/', bookTypeController.bookTypeGet);
 
+router.post('/', bookTypeController.bookTypePost);
+
 module.exports = router;

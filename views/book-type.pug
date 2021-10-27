@@ -132,24 +132,25 @@ body
                 .btn-group.col-6(role='group').sort
                     button#btnGroupDrop1.btn.btn-secondary.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
                         | Sort By
-                    form.dropdown-menu.sortingForm(aria-labelledby='btnGroupDrop1')
+                    form.dropdown-menu.sortingForm(action="/bookType?type=" + bookType + '&page=' + currentPage method="POST" aria-labelledby='btnGroupDrop1' id="sortForm")
                         .form-check.form-check-inline.form-control-lg
-                            input#inlineCheckbox1.form-check-input.checkbox-2x(type='checkbox' value='option1')
+                            input#inlineCheckbox1.form-check-input.checkbox-2x(type='checkbox' name='option' value='option1')
                             label.form-check-label(for='inlineCheckbox1') Sort By Name (A -> Z)
                         .form-check.form-check-inline.form-control-lg
-                            input#inlineCheckbox1.form-check-input.checkbox-2x(type='checkbox' value='option2')
+                            input#inlineCheckbox1.form-check-input.checkbox-2x(type='checkbox' name='option' value='option2')
                             label.form-check-label(for='inlineCheckbox1') Sort By Price (High to Low)
                         .form-check.form-check-inline.form-control-lg
-                            input#inlineCheckbox1.form-check-input.checkbox-2x(type='checkbox' value='option3')
+                            input#inlineCheckbox1.form-check-input.checkbox-2x(type='checkbox' name='option' value='option3')
                             label.form-check-label(for='inlineCheckbox1') Sort By Price (Low to High)
                         .form-check.form-check-inline.form-control-lg
-                            input#inlineCheckbox1.form-check-input.checkbox-2x(type='checkbox' value='option1')
+                            input#inlineCheckbox1.form-check-input.checkbox-2x(type='checkbox' name='option' value='option4')
                             label.form-check-label(for='inlineCheckbox1') Sort By Stars
+                        button(type="submit" class="col-4 btn addBtn") Sort
                 form.col-6.form-inline.my-2.my-lg-0.row.search-type
                     .input-icons.col-9
                         input(class="input-field form-control search mr-sm-2" type="search" placeholder="Search" aria-label="Search")
                     button(type="button" class="btn btn-searchType col-3") SEARCH
-            .wrap-2.row
+            .wrap-2.row.products
                 if books
                     - var n = 0;
                     each value in books
