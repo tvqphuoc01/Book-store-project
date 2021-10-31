@@ -97,12 +97,13 @@ body
                             a.nav-link(href='#') BLOCK
                         li.nav-item
                             a.nav-link(href='#') CONTACT
+                .d-flex.justify-content-between.align-items-center
                     form.form-inline.my-2.my-lg-0.search-bar
                         .input-icons
                             i(class="fas fa-search icon")
                             input(class="input-field form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search")
                     if user
-                        ul.navbar-nav.profile-user
+                        ul.navbar-nav.profile-user.d-flex.justify-content-end
                             if user.image !== null
                                 li.nav-item.profile-avatar
                                     a(href="#")
@@ -110,7 +111,7 @@ body
                                 li.nav-item.dropdown
                                     a(class="contact" href="#")= user.username
                                     div(class="dropdown-content")
-                                        a(class="dropdown-item" href="/profilePage") Profile
+                                        a(class="dropdown-item" href="/profile") Profile
                                         a(class="dropdown-item" href="/logOut") Log Out
                             else
                                 i.px-2(class="fas fa-user-circle fa-3x")

@@ -34,6 +34,10 @@ app.use(express.json()); // for parsing application/json
 // for parsing application/x-www-form-urlencoded
 app.use(express.urlencoded({extended: true}));
 
+//  middleware
+const authMiddleware = require('./middleware/auth.middleware');
+
+
 // Routers
 const loginRoute = require('./routers/login.router');
 const logoutRoute = require('./routers/logOut.route');
@@ -41,6 +45,8 @@ const signUpRoute = require('./routers/signUp.router');
 const indexRoute = require('./routers/index.router');
 const bookPageRoute = require('./routers/book-page.route');
 const bookTypeRoute = require('./routers/book-type.route');
+const profileRoute = require('./routers/profile.route');
+
 // Set view engine
 app.set('views', './views');
 app.set('view engine', 'pug');
@@ -61,6 +67,8 @@ app.use('/logOut', logoutRoute);
 app.use('/bookPage', bookPageRoute);
 
 app.use('/bookType?', bookTypeRoute);
+
+app.use('/profile', authMiddleware.authMiddleware, profileRoute);
 
 app.listen(process.env.PORT, () => {
   console.log(`Example app listening at http://localhost:${process.env.PORT}`);
