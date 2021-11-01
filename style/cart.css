@@ -1,0 +1,408 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+body {
+    font-family: 'Raleway', sans-serif;
+    background-color: #ededed;
+}
+
+header {
+    background-color: #00c2ba;
+}
+
+.main-body {
+    margin-top: 85px !important;
+}
+
+.navbar {
+    background-color: #00c2ba;
+}
+
+.nav-link {
+    color: white !important;
+    font-weight: 700;
+    min-width: 70px !important;
+}
+
+.book-type {
+    font-size: large;
+    font-weight: 700;
+    padding: 15px;
+}
+
+.book-type:hover {
+    color: #00c2ba;
+    transition: 0.5s;
+    background-color: white;
+    cursor: pointer;
+}
+
+.navbar-custom a:hover {
+    color: white;
+    background-color: #e39602;
+}
+
+.navbar-custom a {
+    padding: 10px;
+    align-content: center;
+}
+
+.avatar-nav {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    transition: all 0.5s;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 240px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    margin: 0;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    padding: 10px;
+    font-size: large;
+    font-weight: 700;
+    transition: all 0.6s;
+    border-bottom: 1px solid #e4e4e4;
+    color: #00c2ba;
+    cursor: pointer;
+}
+
+.dropdown-content a:hover {
+    color: white;
+    background-color: #00c2ba;
+}
+
+.contact {
+    color: #fff;
+    font-size: large;
+    font-weight: 700;
+    font-family: 'Raleway', sans-serif;
+    text-transform: uppercase;
+}
+
+.contact:hover {
+    color: white;
+    text-decoration: none;
+    transition: all 0.7s;
+}
+
+.profile-user {
+    padding-left: 65px;
+    align-items: center;
+}
+
+.profile-avatar {
+    padding-right: 45px;
+}
+
+.carousel {
+    margin-top: 65px;
+}
+
+.carousel-item {
+    max-height: 700px;
+}
+
+@media only screen and (min-width: 1200px) {
+    .book {
+        width: 700px;
+        height: 300px;
+    }
+
+    .search-bar {
+        padding-left: 200px;
+    }
+
+    .search-bar input {
+        min-width: 300px;
+    }
+}
+
+/* Search Icon Custom CSS*/
+.input-icons i {
+    position: absolute;
+}
+  
+.input-icons {
+    width: 100%;
+    margin-bottom: 10px;
+}
+  
+.icon {
+    padding: 15px 10px 0px 10px;
+    min-width: 50px;
+    text-align: center;
+}
+  
+.input-field {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
+
+.logIn {
+    font-size: larger;
+    font-weight: 700;
+    color: white;
+}
+
+.logIn:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+  
+.btn-upload {
+    border: 1px solid gray;
+    color: gray;
+    background-color: white;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: thin;
+}
+
+.upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+
+#navbarNavDropdown {
+    max-width: 400px;
+}
+
+.btn-control-profile {
+    padding: 15px;
+    background-color: #fff;
+    font-weight: bolder;
+}
+
+.profile-info::before {
+    content: "\f007";
+    color: #00c2ba;
+    font-family: "FontAwesome";
+    font-size: 18px;
+    margin-top: 3px;
+    padding-right: 10px;
+}
+
+.profile-cart::before {
+    content: "\f07a";
+    color: #fc5931;
+    font-family: "FontAwesome";
+    font-size: 18px;
+    margin-top: 3px;
+    padding-right: 10px;
+}
+
+.profile-order::before {
+    content: "\f02f";
+    color: #8daed7;
+    font-family: "FontAwesome";
+    font-size: 18px;
+    margin-top: 3px;
+    padding-right: 10px;
+}
+
+.profile-history::before {
+    content: "\f1da";
+    font-family: "FontAwesome";
+    color: black;
+    font-size: 18px;
+    margin-top: 3px;
+    padding-right: 10px;
+}
+
+.btn-control-profile:hover {
+    color: #00c2ba;
+}
+
+.cart-head {
+    background-color: #00c2ba;
+    color: white;
+    font-size: larger;
+    font-weight: bolder;
+    padding-top: 10px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.cart-body {
+    padding-top: 15px;
+    background-color: white;
+    align-items: center !important;
+}
+
+.checkbox-2x {
+    margin-left: 10px !important;
+    margin-right: 15px !important;
+    transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+}
+
+.qty .count {
+    color: #000;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 30px;
+    padding: 0 2px
+    ;min-width: 35px;
+    text-align: center;
+}
+.qty .plus {
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+    color: white;
+    width: 30px;
+    height: 30px;
+    font: 30px/1 Arial,sans-serif;
+    text-align: center;
+    border-radius: 50%;
+    }
+.qty .minus {
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+    color: white;
+    width: 30px;
+    height: 30px;
+    font: 30px/1 Arial,sans-serif;
+    text-align: center;
+    border-radius: 50%;
+    background-clip: padding-box;
+}
+.minus:hover{
+    background-color: #717fe0 !important;
+}
+.plus:hover{
+    background-color: #717fe0 !important;
+}
+/*Prevent text selection*/
+span{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.qty input{  
+    border: 0;
+    width: 2%;
+}
+
+input:disabled{
+    background-color:white;
+}
+
+/* Footer */
+.footer {
+    min-height: 400px;
+    width: 100%;
+    background-color: #333333;
+    color: #fff;
+    padding: 80px;
+}
+
+ul, li, ol {
+    list-style: none;
+}
+
+.address-info {
+    padding: 0;
+    margin: 0;
+}
+
+.address-info li {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.title-line {
+    background-color: #00c2ba;
+    height: 2px;
+    margin: 10px auto 25px 0;
+    padding: 0;
+    width: 36px;
+}
+
+.customer-sp {
+    padding: 0;
+    margin: 0;
+}
+
+.customer-sp li {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.customer-sp a {
+    color: #fff;
+}
+
+.customer-sp a:hover {
+    text-decoration: none;
+    color: #00c2ba;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.Copyright {
+    min-height: 100px;
+    background-color: #333333;
+}
+
+.copyRight-title {
+    color: #fff;
+    padding: 35px;
+    text-align: center;
+    font-size: 12pt;
+    font-family: 'Raleway', sans-serif;
+}
+
+.social-list {
+    padding: 35px;
+    text-align: center;
+}
+
+.social-app {
+    display: inline-block;
+    padding-right: 25px;
+    padding-left: 25px;
+}
+
+.fa-facebook-square {
+    color: #4267B2;
+}
+
+.fa-youtube {
+    color: red
+}
+
+.fa-twitter-square {
+    color: #00b6f1;
+}

@@ -12,7 +12,7 @@ head
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl' crossorigin='anonymous')
     //Link CSS
     link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous")
-    link(rel="stylesheet" href="profile.css")
+    link(rel="stylesheet" href="cart.css")
     link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css' integrity='sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay' crossorigin='anonymous')
     link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
     script(type="text/javascript").
@@ -44,6 +44,19 @@ head
                 x.type = "password";
             }
         }
+
+        $(document).ready(function(){
+            $('.count').prop('disabled', true);
+            $(document).on('click','.plus',function(){
+                $('.count').val(parseInt($('.count').val()) + 1 );
+            });
+            $(document).on('click','.minus',function(){
+                $('.count').val(parseInt($('.count').val()) - 1 );
+                    if ($('.count').val() == 0) {
+                        $('.count').val(1);
+                    }
+            });
+        });
 body
     button(onclick="topFunction()" id="myBtn" title="Go to top")
         i(class="fas fa-arrow-up")
@@ -125,94 +138,39 @@ body
                             a.logIn(href="/signUp") SIGN UP
     //New
     .container-fluid
-        .main-body
-            form#registrationForm.form(action='/profilePage' method='post' enctype="multipart/form-data")
-                .row.d-flex.justify-content-center
-                    .col-lg-3
-                        .card.border-ra10
-                            .card-body
-                                .d-flex.flex-column.align-items-center.text-center
-                                    .form-group
-                                        img.rounded-circle.p-1(src=user.image alt='User Avatar')
-                                    .form-group
-                                        .upload-btn-wrapper
-                                            button#upload_label.btn-upload.btn(for='Avatar')
-                                                i.fa.fa-camera.pad-7(aria-hidden='true')
-                                            input#Avatar(type='file' name='avatar')
-                                        .mt-3
-                                            h4= user.username
-                                            .text-secondary.mb-1.flex-control
-                                    .form-group.row#myTab.nav.nav-tabs.card-header-tabs(role='tablist')
-                                        button#info-tab.active.btn.btn-control-profile.profile-info.col-12(data-toggle='tab' href='#info' role='tab' aria-controls='cart' aria-selected='true') YOUR INFORMATION
-                                        button#cart-tab.btn.btn-control-profile.profile-cart.col-12(data-toggle='tab' href='#cart' role='tab' aria-controls='cart' aria-selected='false') YOUR CART
-                                        button(type="button" class="btn btn-control-profile profile-order col-12") YOUR ORDER
-                                        button(type="button" class="btn btn-control-profile profile-history col-12") HISTORY
-                    .col-lg-8
-                        .card.border-ra10
-                            .card-body
-                                #myTabContent.tab-content
-                                    #info.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='cart-tab')
-                                        .form-group
-                                            .row.mb-4.d-flex.align-items-center
-                                                .col-sm-3
-                                                    label(for='first_name')
-                                                        h6.mb-0.d-flex.align-items-center First Name
-                                                .col-sm-9.text-secondary
-                                                    input#first_name.form-control(type='text' name='firstName' value=user.firstName title='enter your first name if any.')
-                                        .form-group  
-                                            .row.mb-4.d-flex.align-items-center
-                                                .col-sm-3
-                                                    label(for='last_name')
-                                                        h6.mb-0.d-flex.align-items-center Last Name
-                                                .col-sm-9.text-secondary
-                                                    input#last_name.form-control(type='text' name='lastName' value=user.lastName title='enter your last name if any.')
-                                                
-                                        .form-group
-                                            .row.mb-4.d-flex.align-items-center
-                                                .col-sm-3
-                                                    label(for='email')
-                                                        h6.mb-0.d-flex.align-items-center Email
-                                                .col-sm-9.text-secondary
-                                                    input#last_name.form-control(type='text' name='email' value=user.email)                                                   
-                                        .form-group
-                                            .row.mb-4.d-flex.align-items-center
-                                                .col-sm-3
-                                                    label(for='phone')
-                                                        h6.mb-0.d-flex.align-items-center Phone
-                                                .col-sm-9.text-secondary
-                                                    input#phone.form-control(type='text' name='phone' value=user.phone)
-                                        .form-group  
-                                            .row.mb-4.d-flex.align-items-center
-                                                .col-sm-3
-                                                    label(for='address')
-                                                        h6.mb-0.d-flex.align-items-center Address
-                                                .col-sm-9.text-secondary
-                                                    input#address.form-control(type='text' name='address' value=user.address)
-                                        .form-group  
-                                            .row.mb-4.d-flex.align-items-center
-                                                .col-sm-3
-                                                    label(for='password')
-                                                    h6.mb-0.d-flex.align-items-center Password
-                                                .col-sm-9.text-secondary
-                                                    input#myInput2.form-control(type='password' name='password' value=user.password)                                                   
-                                        .form-group 
-                                            .row.mb-4.d-flex.align-items-center
-                                                .col-sm-3
-                                                .col-sm-9
-                                                    .show-pass
-                                                        input(type="checkbox" onclick="myFunction2()") 
-                                                        |   Show Password
-                                        .form-group                  
-                                            .row
-                                                .col-sm-12.flex-apply-btn
-                                                    .save-btn
-                                                        input.btn.btn-lg.btn-success.px-4(type='submit' value='Save')
-                                                    .reset-btn
-                                                        input.btn.btn-lg.px-4(type='reset' value='Reset')
-                                                    .logOut-btn
-                                                        a(href='/logOut' id='logOut')
-                                                            input#logOut.btn.btn-lg.btn-danger.px-4(type='button' value='Log Out')
-                                    #cart.tab-pane.fade.p-3(role='tabpanel' aria-labelledby='cart-tab')
+        .main-body.row
+            .col-2
+            .card-body.col-8
+                .cart-head.row
+                    .col-1               
+                    .col-5 
+                        p Book
+                    .col-2
+                        p Price
+                    .col-2
+                        p Qty
+                    .col-2
+                form.row.cart-body
+                    .col-1
+                        input(class="form-check-input checkbox-2x" type="checkbox")
+                    .col-5.row
+                        img(src="book8.png" class="col-4" style="width: 80px; height: 80px;")
+                        h5.col-8 BOOK
+                    .col-2
+                        h5 PRICE
+                    .col-2
+                        .qty
+                            <span class="minus bg-dark">-</span>
+                            <input type="number" class="count" name="qty" value="1">
+                            <span class="plus bg-dark">+</span>
+                    .col-2
+                        a(href="#")
+                            i(class="far fa-trash-alt fa-2x" style="color: red")
+                .cart-tail
+
+            .col-2
+                    
+            
 
 //Footer
 .footer
