@@ -103,7 +103,7 @@ header {
 }
 
 .profile-user {
-    padding-left: 65px;
+    padding-left: 25px;
     align-items: center;
 }
 
@@ -241,6 +241,17 @@ header {
     color: #00c2ba;
 }
 
+.cart-body p {
+    padding-top: 25px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.bookPrice p {
+    text-align: start;
+    padding-left: 35px;
+}
+
 .cart-head {
     background-color: #00c2ba;
     color: white;
@@ -317,6 +328,33 @@ span{
 
 input:disabled{
     background-color:white;
+}
+
+.fa-stack[data-count]:after{
+    position:absolute;
+    right:0%;
+    top:0%;
+    content: attr(data-count);
+    font-size:40%;
+    padding:.6em;
+    border-radius:999px;
+    line-height:.75em;
+    color: white;
+    color:red;
+    text-align:center;
+    min-width:2em;
+    font-weight:bold;
+    background: white;
+    border-style:solid;
+}
+
+.fa-circle {
+    color:#00c2ba;
+}
+
+.red-cart {
+    color: #00c2ba; 
+    background:white;
 }
 
 /* Footer */

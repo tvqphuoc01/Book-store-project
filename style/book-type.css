@@ -376,13 +376,39 @@ header {
     cursor: pointer; /* Add a mouse pointer on hover */
     padding: 15px; /* Some padding */
     border-radius: 45px; /* Rounded corners */
-  }
+}
   
-  #myBtn:hover {
+#myBtn:hover {
     background-color: #555; /* Add a dark-grey background on hover */
     transition: 0.5s;
-  }
+}
 
+.fa-stack[data-count]:after{
+    position:absolute;
+    right:0%;
+    top:0%;
+    content: attr(data-count);
+    font-size:40%;
+    padding:.6em;
+    border-radius:999px;
+    line-height:.75em;
+    color: white;
+    color:red;
+    text-align:center;
+    min-width:2em;
+    font-weight:bold;
+    background: white;
+    border-style:solid;
+}
+
+.fa-circle {
+    color:#00c2ba;
+}
+
+.red-cart {
+    color: #00c2ba; 
+    background:white;
+}
   /* Footer */
 .footer {
     min-height: 400px;

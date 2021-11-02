@@ -99,6 +99,9 @@ body
                         .input-icons
                             i(class="fas fa-search icon")
                             input(class="input-field form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search")
+                    span(class="fa-stack fa-2x has-badge" data-count=cartLength)
+                        a(href="/cart")
+                            i(class="fas fa-cart-plus fa-stack-1x fa-inverse")
                     if user
                         ul.navbar-nav.profile-user.d-flex.justify-content-end
                             if user.image !== null

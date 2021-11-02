@@ -48,7 +48,9 @@ head
         $(document).ready(function(){
             $('.count').prop('disabled', true);
             $(document).on('click','.plus',function(){
-                $('.count').val(parseInt($('.count').val()) + 1 );
+                var id = $('.count').attr('id');
+                console.log(id);
+                $(id).val(parseInt($(id).val()) + 1 );
             });
             $(document).on('click','.minus',function(){
                 $('.count').val(parseInt($('.count').val()) - 1 );
@@ -118,6 +120,9 @@ body
                         .input-icons
                             i(class="fas fa-search icon")
                             input(class="input-field form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search")
+                    span(class="fa-stack fa-2x has-badge" data-count=cartLength)
+                        a(href="/cart")
+                            i(class="fas fa-cart-plus fa-stack-1x fa-inverse")
                     if user
                         ul.navbar-nav.profile-user.d-flex.justify-content-end
                             if user.image !== null
@@ -151,27 +156,26 @@ body
                         p Qty
                     .col-2
                 form.row.cart-body
-                    .col-1
-                        input(class="form-check-input checkbox-2x" type="checkbox")
-                    .col-5.row
-                        img(src="book8.png" class="col-4" style="width: 80px; height: 80px;")
-                        h5.col-8 BOOK
-                    .col-2
-                        h5 PRICE
-                    .col-2
-                        .qty
-                            <span class="minus bg-dark">-</span>
-                            <input type="number" class="count" name="qty" value="1">
-                            <span class="plus bg-dark">+</span>
-                    .col-2
-                        a(href="#")
-                            i(class="far fa-trash-alt fa-2x" style="color: red")
+                    - var n = 0;
+                    each value in bookData
+                        .col-1
+                            input(class="form-check-input checkbox-2x" type="checkbox")
+                        .col-5.row
+                            img(src=bookData[n].bookImage[0] class="col-4" style="width: 80px; height: 80px;")
+                            p.col-8=bookData[n].bookname
+                        .col-2.bookPrice
+                            p=bookData[n].sellPrice + "$"
+                        .col-2
+                            .qty
+                                <span class="minus bg-dark">-</span>
+                                input(id='#'+bookData[n]._id.valueOf() type="number" class="count" name="qty" value="1")
+                                <span class="plus bg-dark">+</span>
+                        .col-2
+                            a(href="#")
+                                i(class="far fa-trash-alt fa-2x" style="color: red")
+                        -n++ ;
                 .cart-tail
-
             .col-2
-                    
-            
-
 //Footer
 .footer
   .container-fluid.row 
