@@ -308,6 +308,11 @@ header {
     border-radius: 50%;
     background-clip: padding-box;
 }
+
+.qty input {
+    text-align: right !important; 
+}
+
 .minus:hover{
     background-color: #717fe0 !important;
 }
@@ -355,6 +360,20 @@ input:disabled{
 .red-cart {
     color: #00c2ba; 
     background:white;
+}
+
+
+#inputGroup-sizing-default {
+    background-color: turquoise;
+    color: white;
+}
+
+.cart-tail .input-group {
+    padding-right: 0;
+}
+
+.cart-tail button {
+    min-width: 200px;
 }
 
 /* Footer */

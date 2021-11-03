@@ -35,7 +35,8 @@ head
             document.body.scrollTop = 0; // For Safari
             document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
         }
-
+        
+        // Function show Userpassword
         function myFunction2() {
             var x = document.getElementById("myInput2");
             if (x.type === "password") {
@@ -48,14 +49,14 @@ head
         $(document).ready(function(){
             $('.count').prop('disabled', true);
             $(document).on('click','.plus',function(){
-                var id = $('.count').attr('id');
-                console.log(id);
-                $(id).val(parseInt($(id).val()) + 1 );
+                var id = $(this).closest('.qty').attr('id'); // Select closest .qty from the selection element
+                $('#input'+id).val(parseInt($('#input'+id).val()) + 1 );
             });
             $(document).on('click','.minus',function(){
-                $('.count').val(parseInt($('.count').val()) - 1 );
-                    if ($('.count').val() == 0) {
-                        $('.count').val(1);
+                var id = $(this).closest('.qty').attr('id'); // Select closest .qty from the selection element
+                $('#input'+id).val(parseInt($('#input'+id).val()) - 1 );
+                    if ($('#input'+id).val() == 0) {
+                        $('#input'+id).val(1);
                     }
             });
         });
@@ -166,15 +167,25 @@ body
                         .col-2.bookPrice
                             p=bookData[n].sellPrice + "$"
                         .col-2
-                            .qty
+                            .qty(id=id=bookData[n]._id.valueOf())
                                 <span class="minus bg-dark">-</span>
-                                input(id='#'+bookData[n]._id.valueOf() type="number" class="count" name="qty" value="1")
+                                input(id='input'+bookData[n]._id.valueOf() type="number" class="count" name="qty" value="1")
                                 <span class="plus bg-dark">+</span>
                         .col-2
                             a(href="#")
                                 i(class="far fa-trash-alt fa-2x" style="color: red")
                         -n++ ;
                 .cart-tail
+                    .row.d-flex.justify-content-end
+                        .col-8
+                        <div class="input-group mb-3 col-4">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Promo Code</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                        </div>
+                    .row.d-flex.justify-content-end
+                        button(type="button" class="btn btn-primary") ORDER
             .col-2
 //Footer
 .footer
