@@ -263,6 +263,7 @@ header {
 
 .cart-body {
     padding-top: 15px;
+    padding-bottom: 15px;
     background-color: white;
     align-items: center !important;
 }
@@ -374,6 +375,13 @@ input:disabled{
 
 .cart-tail button {
     min-width: 200px;
+    background-color: #00c2ba;
+    color: white;
+}
+
+.cart-tail button:hover {
+    background-color: red;
+    transition: 0.5s;
 }
 
 /* Footer */

@@ -117,7 +117,7 @@ body
                                 li.nav-item.dropdown
                                     a(class="contact" href="#")= user.username
                                     div(class="dropdown-content")
-                                        a(class="dropdown-item" href="/profilePage") Profile
+                                        a(class="dropdown-item" href="/profile") Profile
                                         a(class="dropdown-item" href="/logOut") Log Out
                             else
                                 i.px-2(class="fas fa-user-circle fa-3x")
@@ -148,6 +148,7 @@ body
                                     .form-group.row#myTab.nav.nav-tabs.card-header-tabs(role='tablist')
                                         button#info-tab.active.btn.btn-control-profile.profile-info.col-12(data-toggle='tab' href='#info' role='tab' aria-controls='cart' aria-selected='true') YOUR INFORMATION
                                         button#cart-tab.btn.btn-control-profile.profile-cart.col-12(data-toggle='tab' href='#cart' role='tab' aria-controls='cart' aria-selected='false') YOUR CART
+                                        button(type="button" class="btn btn-control-profile profile-wish-list col-12") WISH LIST
                                         button(type="button" class="btn btn-control-profile profile-order col-12") YOUR ORDER
                                         button(type="button" class="btn btn-control-profile profile-history col-12") HISTORY
                     .col-lg-8

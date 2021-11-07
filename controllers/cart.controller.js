@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 const userModels = require('../models/users.model');
 const bookModels = require('../models/books.model');
 const cartModels = require('../models/cart.models');
@@ -6,6 +7,10 @@ const cartGet = async function(req, res) {
   const userData = await userModels.findOne(
       {_id: req.signedCookies.userId},
   );
+
+  if (req.query.itemId) {
+    await cartModels.findOneAndUpdate({'userId': req.signedCookies.userId}, {$pull: {cart: {bookId: req.query.itemId}}});
+  }
 
   const cartData = await cartModels.findOne(
       {userId: req.signedCookies.userId},

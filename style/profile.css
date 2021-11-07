@@ -237,6 +237,15 @@ header {
     padding-right: 10px;
 }
 
+.profile-wish-list::before {
+    content: "\f022";
+    font-family: "FontAwesome";
+    color: pink;
+    font-size: 18px;
+    margin-top: 3px;
+    padding-right: 10px;
+}
+
 .btn-control-profile:hover {
     color: #00c2ba;
 }
