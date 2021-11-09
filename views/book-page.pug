@@ -53,12 +53,19 @@ head
                 }
                 return vars;
             }
-            $(".addBtn").click(function(){ // Get add to card Btn
+            $(".addBtn").click(function(){ // Get add to cart Btn
                 let qty = $("#exampleFormControlSelect1").val();
                 let id = getUrlVars().id;
                 $.post('/addToCart', // Post value to /addToCart by AJAX
                     {
                         Qty: qty,
+                        productId: id
+                    },)
+            });
+            $(".wishListBtn").click(function(){ // Get add to wishList Btn
+                let id = getUrlVars().id;
+                $.post('/addToWishList', // Post value to /addToWishList by AJAX
+                    {
                         productId: id
                     },)
             });
@@ -216,7 +223,7 @@ body
                         button(type="button" class="col-4 btn addBtn") Add to Cart 
                             i(class="fas fa-shopping-cart")
                         .col-1
-                        button(type="button" class="col-2 btn")
+                        button(type="button" class="col-2 btn wishListBtn")
                             i(class="fas fa-heart")
                         .col-5
                     p.vote DETAILS: 

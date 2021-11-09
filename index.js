@@ -48,6 +48,7 @@ const bookTypeRoute = require('./routers/book-type.route');
 const profileRoute = require('./routers/profile.route');
 const cartRoute = require('./routers/cart.route');
 const addToCartRoute = require('./routers/addToCart.route');
+const addToWishListRoute = require('./routers/addToWishList.route');
 // Set view engine
 app.set('views', './views');
 app.set('view engine', 'pug');
@@ -74,6 +75,8 @@ app.use('/profile', authMiddleware.authMiddleware, profileRoute);
 app.use('/cart', authMiddleware.authMiddleware, cartRoute);
 
 app.use('/addToCart', authMiddleware.authMiddleware, addToCartRoute);
+
+app.use('/addToWishList', authMiddleware.authMiddleware, addToWishListRoute);
 
 app.listen(process.env.PORT, () => {
   console.log(`Example app listening at http://localhost:${process.env.PORT}`);

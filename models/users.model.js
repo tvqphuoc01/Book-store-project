@@ -10,6 +10,7 @@ const userModel = new mongoose.Schema({
   address: String,
   phone: String,
   image: String,
+  wishList: [],
 });
 
 module.exports = mongoose.model('user', userModel);

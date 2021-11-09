@@ -148,7 +148,7 @@ body
                                     .form-group.row#myTab.nav.nav-tabs.card-header-tabs(role='tablist')
                                         button#info-tab.active.btn.btn-control-profile.profile-info.col-12(data-toggle='tab' href='#info' role='tab' aria-controls='cart' aria-selected='true') YOUR INFORMATION
                                         button#cart-tab.btn.btn-control-profile.profile-cart.col-12(data-toggle='tab' href='#cart' role='tab' aria-controls='cart' aria-selected='false') YOUR CART
-                                        button(type="button" class="btn btn-control-profile profile-wish-list col-12") WISH LIST
+                                        button#wish-tab.btn.btn-control-profile.profile-wish-list.col-12(data-toggle='tab' href='#wish' role='tab' aria-controls='wish' aria-selected='false') WISH LIST
                                         button(type="button" class="btn btn-control-profile profile-order col-12") YOUR ORDER
                                         button(type="button" class="btn btn-control-profile profile-history col-12") HISTORY
                     .col-lg-8
@@ -217,6 +217,21 @@ body
                                                         a(href='/logOut' id='logOut')
                                                             input#logOut.btn.btn-lg.btn-danger.px-4(type='button' value='Log Out')
                                     #cart.tab-pane.fade.p-3(role='tabpanel' aria-labelledby='cart-tab')
+                                    #wish.tab-pane.fade.p-3(role='tabpanel' aria-labelledby='wish-tab')
+                                        - var n = 0;
+                                            each value in wishList
+                                                .row.cart-body
+                                                    .col-1
+                                                    .col-5.row
+                                                        img(src=wishList[n].bookImage[0] class="col-4" style="width: 80px; height: 80px;")
+                                                        p.col-8=wishList[n].bookname
+                                                    .col-2.bookPrice
+                                                        p=wishList[n].sellPrice + "$"
+                                                    .col-2
+                                                    .col-2
+                                                        a(href="/cart?itemId="+wishList[n]._id.valueOf())
+                                                            i(class="far fa-trash-alt fa-2x" style="color: red")
+                                                -n++ ;
 
 //Footer
 .footer
