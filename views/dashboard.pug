@@ -1,0 +1,109 @@
+head
+    // Required meta tags
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    // Bootstrap CSS
+    link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous')
+    title admin
+    // Optional JavaScript
+    // jQuery first, then Popper.js, then Bootstrap JS
+    script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl' crossorigin='anonymous')
+    //Link CSS
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous")
+    link(rel="stylesheet" href="dashboard.css")
+    link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css' integrity='sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay' crossorigin='anonymous')
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+aside#show-side-navigation1.sidebar.position-fixed.top-0.left-0.overflow-auto.h-100.float-left
+  .sidebar-header.d-flex.justify-content-center.align-items-center.px-3.py-4.row
+    img.col-6.rounded-circle(width='65' src='https://uniim1.shutterfly.com/ng/services/mediarender/THISLIFE/021036514417/media/23148907008/medium/1501685726/enhance' alt='')
+    .col-6
+      h5.fs-6.mb-0
+        a.text-decoration-none(href='#') Jone Doe
+  .list-group#myTab(role='tablist')
+    a.list-group-item.list-group-item-action#dashboard-tab.dashboard(data-toggle='tab' href='#dashboard' role='tab' aria-controls='dashboard' aria-selected='true') DASHBOARD
+    a.list-group-item.list-group-item-action#email-tab.email(data-toggle='tab' href='#email' role='tab' aria-controls='email' aria-selected='true') MAIL
+    a.list-group-item.list-group-item-action#chart-tab.chart(data-toggle='tab' href='#chart' role='tab' aria-controls='chart' aria-selected='true') STATISTICAL
+    a.list-group-item.list-group-item-action#book-tab.book(data-toggle='tab' href='#book' role='tab' aria-controls='book' aria-selected='true') BOOK CONTROLS 
+    a.list-group-item.list-group-item-action#blog-tab.blog(data-toggle='tab' href='#blog' role='tab' aria-controls='blog' aria-selected='true') BLOG CONTROLS 
+    a.list-group-item.list-group-item-action#order-tab.order(data-toggle='tab' href='#order' role='tab' aria-controls='order' aria-selected='true') ORDER CONTROLS 
+    a.list-group-item.list-group-item-action#client-tab.client(data-toggle='tab' href='#client' role='tab' aria-controls='client' aria-selected='true') CLIENT CONTROLS 
+    a.list-group-item.list-group-item-action#income-tab.income(data-toggle='tab' href='#income' role='tab' aria-controls='income' aria-selected='true') INCOME
+div#dashboard.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='dashboard-tab')    
+  section#wrapper
+    .p-4
+      .welcome
+        .content.rounded-3.p-3
+          h1.fs-3 Welcome to Dashboard
+          p.mb-0 Hello Jone Doe, welcome to your awesome dashboard!
+      section.statistics.mt-4
+        .row
+          .col-lg-4
+            .box.d-flex.rounded-2.align-items-center.mb-4.mb-lg-0.p-3
+              i.uil-envelope-shield.fs-2.text-center.bg-primary.rounded-circle
+              .ms-3
+                .d-flex.align-items-center
+                  h3.mb-0 1,245
+                  span.d-block.ms-2 Emails
+                p.fs-normal.mb-0 Lorem ipsum dolor sit amet
+          .col-lg-4
+            .box.d-flex.rounded-2.align-items-center.mb-4.mb-lg-0.p-3
+              i.uil-file.fs-2.text-center.bg-danger.rounded-circle
+              .ms-3
+                .d-flex.align-items-center
+                  h3.mb-0 34
+                  span.d-block.ms-2 Projects
+                p.fs-normal.mb-0 Lorem ipsum dolor sit amet
+          .col-lg-4
+            .box.d-flex.rounded-2.align-items-center.p-3
+              i.uil-users-alt.fs-2.text-center.bg-success.rounded-circle
+              .ms-3
+                .d-flex.align-items-center
+                  h3.mb-0 5,245
+                  span.d-block.ms-2 Users
+                p.fs-normal.mb-0 Lorem ipsum dolor sit amet
+      section.charts.mt-4
+        .row
+          .col-lg-6
+            .chart-container.rounded-2.p-3
+              h3.fs-6.mb-3 Chart title number one
+              canvas#myChart
+          .col-lg-6
+            .chart-container.rounded-2.p-3
+              h3.fs-6.mb-3 Chart title number two
+              canvas#myChart2
+      section.statis.mt-4.text-center
+        .row
+          .col-md-6.col-lg-3.mb-4.mb-lg-0
+            .box.bg-primary.p-3
+              i.uil-eye
+              h3 5,154
+              p.lead Page views
+          .col-md-6.col-lg-3.mb-4.mb-lg-0
+            .box.bg-danger.p-3
+              i.uil-user
+              h3 245
+              p.lead User registered
+          .col-md-6.col-lg-3.mb-4.mb-md-0
+            .box.bg-warning.p-3
+              i.uil-shopping-cart
+              h3 5,154
+              p.lead Product sales
+          .col-md-6.col-lg-3
+            .box.bg-success.p-3
+              i.uil-feedback
+              h3 5,154
+              p.lead Transactions
+      section.charts.mt-4
+        .chart-container.p-3
+          h3.fs-6.mb-3 Chart title number three
+          div(style='height: 300px')
+            canvas#chart3(width='100%')
+#email.tab-pane.fade.show(role='tabpanel' aria-labelledby='email-tab')    
+#chart.tab-pane.fade.show(role='tabpanel' aria-labelledby='chart-tab')    
+#book.tab-pane.fade.show(role='tabpanel' aria-labelledby='book-tab')    
+#blog.tab-pane.fade.show(role='tabpanel' aria-labelledby='blog-tab')    
+#order.tab-pane.fade.show(role='tabpanel' aria-labelledby='order-tab')    
+#client.tab-pane.fade.show(role='tabpanel' aria-labelledby='client-tab')   
+#income.tab-pane.fade.show(role='tabpanel' aria-labelledby='client-tab')   

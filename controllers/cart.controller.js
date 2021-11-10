@@ -15,20 +15,24 @@ const cartGet = async function(req, res) {
   const cartData = await cartModels.findOne(
       {userId: req.signedCookies.userId},
   );
-
-  const bookIdList = [];
-  const bookData = [];
-  for (let i = 0; i < cartData.cart.length; i++) {
-    bookIdList.push(cartData.cart[i].bookId);
+  if (cartData === null) {
+    res.locals.cartLength = 0;
+    res.locals.bookData = [];
+  } else {
+    const bookIdList = [];
+    const bookData = [];
+    for (let i = 0; i < cartData.cart.length; i++) {
+      bookIdList.push(cartData.cart[i].bookId);
+    }
+    for (let i = 0; i < bookIdList.length; i++) {
+      const book = await bookModels.findOne(
+          {_id: bookIdList[i]},
+      );
+      bookData.push(book);
+    }
+    res.locals.cartLength = bookIdList.length;
+    res.locals.bookData = bookData;
   }
-  for (let i = 0; i < bookIdList.length; i++) {
-    const book = await bookModels.findOne(
-        {_id: bookIdList[i]},
-    );
-    bookData.push(book);
-  }
-  res.locals.cartLength = bookIdList.length;
-  res.locals.bookData = bookData;
   res.locals.user = userData;
   res.render('cart');
 };

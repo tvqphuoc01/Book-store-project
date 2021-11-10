@@ -49,6 +49,7 @@ const profileRoute = require('./routers/profile.route');
 const cartRoute = require('./routers/cart.route');
 const addToCartRoute = require('./routers/addToCart.route');
 const addToWishListRoute = require('./routers/addToWishList.route');
+const adminRoute = require('./routers/admin.router');
 // Set view engine
 app.set('views', './views');
 app.set('view engine', 'pug');
@@ -57,6 +58,7 @@ app.set('view engine', 'pug');
 app.use(express.static('style'));
 app.use(express.static('images'));
 app.use(express.static('views'));
+
 
 app.use('/', indexRoute);
 
@@ -77,6 +79,12 @@ app.use('/cart', authMiddleware.authMiddleware, cartRoute);
 app.use('/addToCart', authMiddleware.authMiddleware, addToCartRoute);
 
 app.use('/addToWishList', authMiddleware.authMiddleware, addToWishListRoute);
+
+app.use('/admin', adminRoute);
+
+app.get('/dashboard', function(req, res) {
+  res.render('dashboard');
+});
 
 app.listen(process.env.PORT, () => {
   console.log(`Example app listening at http://localhost:${process.env.PORT}`);

@@ -147,7 +147,8 @@ body
                                             .text-secondary.mb-1.flex-control
                                     .form-group.row#myTab.nav.nav-tabs.card-header-tabs(role='tablist')
                                         button#info-tab.active.btn.btn-control-profile.profile-info.col-12(data-toggle='tab' href='#info' role='tab' aria-controls='cart' aria-selected='true') YOUR INFORMATION
-                                        button#cart-tab.btn.btn-control-profile.profile-cart.col-12(data-toggle='tab' href='#cart' role='tab' aria-controls='cart' aria-selected='false') YOUR CART
+                                        a(href="/cart").col-12
+                                            button.btn.btn-control-profile.profile-cart.col-12(type="button") YOUR CART
                                         button#wish-tab.btn.btn-control-profile.profile-wish-list.col-12(data-toggle='tab' href='#wish' role='tab' aria-controls='wish' aria-selected='false') WISH LIST
                                         button(type="button" class="btn btn-control-profile profile-order col-12") YOUR ORDER
                                         button(type="button" class="btn btn-control-profile profile-history col-12") HISTORY
@@ -216,22 +217,32 @@ body
                                                     .logOut-btn
                                                         a(href='/logOut' id='logOut')
                                                             input#logOut.btn.btn-lg.btn-danger.px-4(type='button' value='Log Out')
-                                    #cart.tab-pane.fade.p-3(role='tabpanel' aria-labelledby='cart-tab')
                                     #wish.tab-pane.fade.p-3(role='tabpanel' aria-labelledby='wish-tab')
-                                        - var n = 0;
-                                            each value in wishList
-                                                .row.cart-body
-                                                    .col-1
-                                                    .col-5.row
-                                                        img(src=wishList[n].bookImage[0] class="col-4" style="width: 80px; height: 80px;")
-                                                        p.col-8=wishList[n].bookname
-                                                    .col-2.bookPrice
-                                                        p=wishList[n].sellPrice + "$"
-                                                    .col-2
-                                                    .col-2
-                                                        a(href="/cart?itemId="+wishList[n]._id.valueOf())
-                                                            i(class="far fa-trash-alt fa-2x" style="color: red")
-                                                -n++ ;
+                                        .cart-head.row
+                                            .col-1     
+                                            .col-5 
+                                                p Book
+                                            .col-2
+                                                p Price
+                                            .col-2
+                                            .col-2
+                                        .cart-body
+                                            - var n = 0;
+                                                each value in wishList
+                                                    .row.cart-body
+                                                        .col-1
+                                                        .col-5.row
+                                                            img(src=wishList[n].bookImage[0] class="col-4" style="width: 80px; height: 80px;")
+                                                            p.col-8=wishList[n].bookname
+                                                        .col-2.bookPrice
+                                                            p=wishList[n].sellPrice + "$"
+                                                        .col-2
+                                                            a(href="/bookPage?id=" + wishList[n]._id.valueOf())
+                                                                button(type="button" class="btn btn-success") Go to Shop
+                                                        .col-2
+                                                            a(href="/profile?itemId="+wishList[n]._id.valueOf())
+                                                                i(class="far fa-trash-alt fa-2x" style="color: red")
+                                                    -n++;
 
 //Footer
 .footer
@@ -268,9 +279,9 @@ body
             h5 Copyright © 2021 yourdomian. All rights reserved.
         .col-6
             ul.social-list 
-            li.social-app
-                <i class="fab fa-facebook-square fa-3x"></i>
-            li.social-app
-                <i class="fab fa-youtube fa-3x"></i>
-            li.social-app
-                <i class="fab fa-twitter-square fa-3x"></i>
+                li.social-app
+                    i(class="fab fa-facebook-square fa-3x")
+                li.social-app
+                    i(class="fab fa-youtube fa-3x")
+                li.social-app
+                    i(class="fab fa-twitter-square fa-3x")

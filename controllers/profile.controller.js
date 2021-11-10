@@ -5,9 +5,21 @@ const profileGet = async function(req, res) {
   // If userCookie === true => load User Info
   // Else Load -> raw Index page
   if (req.signedCookies.userId !== false) {
+    /** Check itemId user want to Delete
+     *  Delete user by $pull in MmongoDB
+     *  Delete before await UserData
+    */
+    if (req.query.itemId) {
+      await userModels.findOneAndUpdate(
+          {'userId': req.signedCookies.userId},
+          {$pull: {wishList: req.query.itemId}},
+      );
+    }
+
     const userData = await userModels.findOne(
         {_id: req.signedCookies.userId},
     );
+
     const wishList = [];
     for (let i = 0; i < userData.wishList.length; i++) {
       wishList.push(await bookModels.findOne(
