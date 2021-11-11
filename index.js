@@ -37,19 +37,19 @@ app.use(express.urlencoded({extended: true}));
 //  middleware
 const authMiddleware = require('./middleware/auth.middleware');
 
-
 // Routers
 const loginRoute = require('./routers/login.router');
-const logoutRoute = require('./routers/logOut.route');
+const logoutRoute = require('./routers/logOut.router');
 const signUpRoute = require('./routers/signUp.router');
 const indexRoute = require('./routers/index.router');
-const bookPageRoute = require('./routers/book-page.route');
-const bookTypeRoute = require('./routers/book-type.route');
-const profileRoute = require('./routers/profile.route');
-const cartRoute = require('./routers/cart.route');
-const addToCartRoute = require('./routers/addToCart.route');
-const addToWishListRoute = require('./routers/addToWishList.route');
+const bookPageRoute = require('./routers/book-page.router');
+const bookTypeRoute = require('./routers/book-type.router');
+const profileRoute = require('./routers/profile.router');
+const cartRoute = require('./routers/cart.router');
+const addToCartRoute = require('./routers/addToCart.router');
+const addToWishListRoute = require('./routers/addToWishList.router');
 const adminRoute = require('./routers/admin.router');
+const dashboardRoute = require('./routers/dashboard.router');
 // Set view engine
 app.set('views', './views');
 app.set('view engine', 'pug');
@@ -58,7 +58,7 @@ app.set('view engine', 'pug');
 app.use(express.static('style'));
 app.use(express.static('images'));
 app.use(express.static('views'));
-
+app.use(express.static('js'));
 
 app.use('/', indexRoute);
 
@@ -82,9 +82,7 @@ app.use('/addToWishList', authMiddleware.authMiddleware, addToWishListRoute);
 
 app.use('/admin', adminRoute);
 
-app.get('/dashboard', function(req, res) {
-  res.render('dashboard');
-});
+app.use('/dashboard', dashboardRoute);
 
 app.listen(process.env.PORT, () => {
   console.log(`Example app listening at http://localhost:${process.env.PORT}`);

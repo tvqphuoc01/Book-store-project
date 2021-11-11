@@ -15,6 +15,10 @@ head
     link(rel="stylesheet" href="dashboard.css")
     link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css' integrity='sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay' crossorigin='anonymous')
     link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+    script(src="https://cdn.jsdelivr.net/npm/chart.js")
+    script(type="text/javascript").
+      var usersData = !{userData}; // Load user data from locals var
+      var booksData = !{bookData}; // Load book data from locals var
 aside#show-side-navigation1.sidebar.position-fixed.top-0.left-0.overflow-auto.h-100.float-left
   .sidebar-header.d-flex.justify-content-center.align-items-center.px-3.py-4.row
     img.col-6.rounded-circle(width='65' src='https://uniim1.shutterfly.com/ng/services/mediarender/THISLIFE/021036514417/media/23148907008/medium/1501685726/enhance' alt='')
@@ -36,43 +40,49 @@ div#dashboard.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='dashboa
       .welcome
         .content.rounded-3.p-3
           h1.fs-3 Welcome to Dashboard
-          p.mb-0 Hello Jone Doe, welcome to your awesome dashboard!
+          p.mb-0 Hello, welcome to dashboard!
       section.statistics.mt-4
         .row
           .col-lg-4
-            .box.d-flex.rounded-2.align-items-center.mb-4.mb-lg-0.p-3
-              i.uil-envelope-shield.fs-2.text-center.bg-primary.rounded-circle
+            .box.d-flex.rounded-2.align-items-center.mb-4.mb-lg-0.p-3.justify-content-center
+              i.uil-envelope-shield.fs-2.text-center.bg-primary.rounded-circle.fas.fa-users.fa-2x
               .ms-3
                 .d-flex.align-items-center
-                  h3.mb-0 1,245
-                  span.d-block.ms-2 Emails
-                p.fs-normal.mb-0 Lorem ipsum dolor sit amet
-          .col-lg-4
-            .box.d-flex.rounded-2.align-items-center.mb-4.mb-lg-0.p-3
-              i.uil-file.fs-2.text-center.bg-danger.rounded-circle
-              .ms-3
-                .d-flex.align-items-center
-                  h3.mb-0 34
-                  span.d-block.ms-2 Projects
-                p.fs-normal.mb-0 Lorem ipsum dolor sit amet
-          .col-lg-4
-            .box.d-flex.rounded-2.align-items-center.p-3
-              i.uil-users-alt.fs-2.text-center.bg-success.rounded-circle
-              .ms-3
-                .d-flex.align-items-center
-                  h3.mb-0 5,245
+                  // Number of Users
+                  h3.mb-0=NumberOfUsers
                   span.d-block.ms-2 Users
-                p.fs-normal.mb-0 Lorem ipsum dolor sit amet
+                p.fs-normal.mb-0 Number of Users
+          .col-lg-4
+            .box.d-flex.rounded-2.align-items-center.mb-4.mb-lg-0.p-3.justify-content-center
+              i.uil-file.fs-2.text-center.bg-danger.rounded-circle.fas.fa-book.fa-2x
+              .ms-3
+                .d-flex.align-items-center
+                  // Number of Books
+                  h3.mb-0=NumberOfBooks
+                  span.d-block.ms-2 Books
+                p.fs-normal.mb-0 Number of Books
+          .col-lg-4
+            .box.d-flex.rounded-2.align-items-center.p-3.justify-content-center
+              i.uil-users-alt.fs-2.text-center.bg-success.rounded-circle.fas.fa-newspaper.fa-2x
+              .ms-3
+                .d-flex.align-items-center
+                  // Number of Blogs
+                  h3.mb-0 5,245
+                  span.d-block.ms-2 Blogs
+                p.fs-normal.mb-0 Number of Blogs
       section.charts.mt-4
         .row
           .col-lg-6
             .chart-container.rounded-2.p-3
-              h3.fs-6.mb-3 Chart title number one
+              h3.fs-6.mb-3 Number of Orders in a Week
               canvas#myChart
-          .col-lg-6
-            .chart-container.rounded-2.p-3
-              h3.fs-6.mb-3 Chart title number two
+          .col-lg-6.row
+            .chart-container.rounded-2.p-3.col-6
+              h3.fs-6.mb-3 Books Sell By Type
               canvas#myChart2
+            .chart-container.rounded-2.p-3.col-6
+              h3.fs-6.mb-3 Order Status
+              canvas#myChart3
       section.statis.mt-4.text-center
         .row
           .col-md-6.col-lg-3.mb-4.mb-lg-0
@@ -100,6 +110,7 @@ div#dashboard.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='dashboa
           h3.fs-6.mb-3 Chart title number three
           div(style='height: 300px')
             canvas#chart3(width='100%')
+      canvas#myChart(width='400' height='400')
 #email.tab-pane.fade.show(role='tabpanel' aria-labelledby='email-tab')    
 #chart.tab-pane.fade.show(role='tabpanel' aria-labelledby='chart-tab')    
 #book.tab-pane.fade.show(role='tabpanel' aria-labelledby='book-tab')    
@@ -107,3 +118,5 @@ div#dashboard.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='dashboa
 #order.tab-pane.fade.show(role='tabpanel' aria-labelledby='order-tab')    
 #client.tab-pane.fade.show(role='tabpanel' aria-labelledby='client-tab')   
 #income.tab-pane.fade.show(role='tabpanel' aria-labelledby='client-tab')   
+
+script(type="text/javascript" src="data.js")
