@@ -88,12 +88,12 @@ div#dashboard.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='dashboa
           .col-md-6.col-lg-3.mb-4.mb-lg-0
             .box.bg-primary.p-3
               i.uil-eye
-              h3 5,154
+              h3=pageViews
               p.lead Page views
           .col-md-6.col-lg-3.mb-4.mb-lg-0
             .box.bg-danger.p-3
               i.uil-user
-              h3 245
+              h3=NumberOfUsers
               p.lead User registered
           .col-md-6.col-lg-3.mb-4.mb-md-0
             .box.bg-warning.p-3
@@ -107,10 +107,9 @@ div#dashboard.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='dashboa
               p.lead Transactions
       section.charts.mt-4
         .chart-container.p-3
-          h3.fs-6.mb-3 Chart title number three
-          div(style='height: 300px')
-            canvas#chart3(width='100%')
-      canvas#myChart(width='400' height='400')
+          h3.fs-6.mb-3 Order By Month
+          div
+            canvas#myChart4(width='100%')
 #email.tab-pane.fade.show(role='tabpanel' aria-labelledby='email-tab')    
 #chart.tab-pane.fade.show(role='tabpanel' aria-labelledby='chart-tab')    
 #book.tab-pane.fade.show(role='tabpanel' aria-labelledby='book-tab')    
