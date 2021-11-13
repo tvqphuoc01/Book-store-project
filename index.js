@@ -1,5 +1,4 @@
 const express = require('express');
-require('dotenv').config();
 const mongoose = require('mongoose');
 const passport = require('passport');
 const session = require('express-session');
@@ -9,7 +8,6 @@ const randomstring = require('randomstring');
 const bodyParser = require('body-parser');
 const app = express();
 app.use(cookieParser(randomstring.generate()));
-
 
 // Connect to MongoDB
 require('dotenv').config();
