@@ -168,21 +168,21 @@ input:focus{
     margin-right: 5px;
 }
 
-.login_btn{
+.login_btn {
     color: black;
     background-color: #00c2ba;
     width: 100px;
 }
 
-.login_btn:hover{
+.login_btn:hover {
     color: black;
     background-color: white;
 }
 
-.links{
+.links {
     color: white;
 }
 
-.links a{
+.links a {
     margin-left: 4px;
 }
