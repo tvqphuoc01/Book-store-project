@@ -55,6 +55,7 @@ app.set('view engine', 'pug');
 
 // Public File
 app.use(express.static('style'));
+app.use(express.static('style/login.css'));
 app.use(express.static('images'));
 app.use(express.static('views'));
 app.use(express.static('js'));
