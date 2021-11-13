@@ -54,7 +54,6 @@ app.set('views', './views');
 app.set('view engine', 'pug');
 
 // Public File
-app.use(express.static(__dirname + '/public'));
 app.use(express.static('style'));
 app.use(express.static('images'));
 app.use(express.static('views'));
