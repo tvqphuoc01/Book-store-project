@@ -7,9 +7,6 @@ module.exports.loginValidate = async function(req, res, next) {
       {username: req.body.username},
       {username: 1, _id: 1, password: 1},
   );
-
-  console.log(req.body.password);
-  console.log(userData.password);
   if (userData === null) {
     errors.push('user does not exist !!!');
   } else if (req.body.password !== userData.password) {
@@ -24,7 +21,7 @@ module.exports.loginValidate = async function(req, res, next) {
     return;
   } else {
     // Delete Cookie when User close Browsers
-    res.cookie('userId', userData._id.valueOf(), {signed: true});
+    res.cookie('adminId', userData._id.valueOf(), {signed: true});
   }
   next();
 };
