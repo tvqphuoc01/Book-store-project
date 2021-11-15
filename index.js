@@ -35,7 +35,7 @@ app.use(express.urlencoded({extended: true}));
 
 //  middleware
 const authMiddleware = require('./middleware/auth.middleware');
-
+const adminAuth = require('./middleware/adminAuth.middleware');
 // Routers
 const loginRoute = require('./routers/login.router');
 const logoutRoute = require('./routers/logOut.router');
@@ -81,7 +81,7 @@ app.use('/addToWishList', authMiddleware.authMiddleware, addToWishListRoute);
 
 app.use('/admin', adminRoute);
 
-app.use('/dashboard', dashboardRoute);
+app.use('/dashboard', adminAuth.authMiddleware, dashboardRoute);
 
 app.listen(process.env.PORT, () => {
   console.log(`Example app listening at http://localhost:${process.env.PORT}`);

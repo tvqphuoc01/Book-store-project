@@ -25,13 +25,16 @@ head
         | ADMIN PANEL
       .col-lg-12.login-form
         .col-lg-12.login-form
-          form
+          form(action='/admin' method='POST')
+            if errors
+              each error in errors
+                .alert.alert-danger= error
             .form-group
               label.form-control-label USERNAME
-              input.form-control(type='text')
+              input.form-control(type='text' name="username")
             .form-group
               label.form-control-label PASSWORD
-              input.form-control(type='password' i='')
+              input.form-control(type='password' name='password')
             .col-lg-12.loginbttm
               .col-lg-6.login-btm.login-text
                 // Error Message

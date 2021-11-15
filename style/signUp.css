@@ -10,6 +10,10 @@ p {
     background-color: #00c2ba;
 }
 
+.container {
+  background-color: white !important;
+}
+
 .signUp-content {
   margin-top: 70px;
 }

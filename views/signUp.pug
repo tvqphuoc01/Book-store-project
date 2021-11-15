@@ -1,20 +1,7 @@
-doctype html
-head
-    // Required meta tags
-    meta(charset='utf-8')
-    meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
-    link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous')
-    title Book Store Sign Up
-    // Optional JavaScript
-    // jQuery first, then Popper.js, then Bootstrap JS
-    script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous')
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous')
-    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl' crossorigin='anonymous')
-    //Link CSS
+extends layout.pug 
+block extraHeader 
     link(rel="stylesheet" href="owl.carousel.min.css")
     link(rel="stylesheet" href="signUp.css")
-    link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css' integrity='sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay' crossorigin='anonymous')
-    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
     script(type="text/javascript").
         $(function() {
             'use strict';
@@ -27,127 +14,51 @@ head
             }
             });
         });
-.container
-  header.w-100.fixed-top
-    .container-fluid
-      nav.navbar.navbar-expand-lg.navbar-light
-        a.navbar-brand(href='/')
-          img(src="logo.png" alt="Book Store logo")
-        button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNavDropdown' aria-controls='navbarNavDropdown' aria-expanded='false' aria-label='Toggle navigation')
-          span.navbar-toggler-icon
-        #navbarNavDropdown.collapse.navbar-collapse
-          ul.navbar-nav
-            li.nav-item
-              a.nav-link(href='/') HOME
-            li.nav-item.dropdown
-              a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
-                | BOOK
-              .dropdown-menu.book(aria-labelledby='navbarDropdownMenuLink')
-                div.row.navbar-custom
-                  div.col-xl-6
-                    .dropdown-item.book-type(href='#') FICTION BOOK
-                    a.dropdown-item(href='#') Crime and Mystery
-                    a.dropdown-item(href='#') Fantasy
-                    a.dropdown-item(href='#') Model Fiction
-                    a.dropdown-item(href='#') Romace
-                    a.dropdown-item(href='#') Adventure
-                  div.col-xl-6
-                    .dropdown-item.book-type(href='#') NON-FICTION BOOK
-                    a.dropdown-item(href='#') Biography and True Story
-                    a.dropdown-item(href='#') English Language Teaching
-                    a.dropdown-item(href='#') Personal Development
-                    a.dropdown-item(href='#') Lifestyle, Cooking, Health
-                    a.dropdown-item(href='#') Reference Books
-            li.nav-item.dropdown
-              a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
-                  | E-BOOK
-              .dropdown-menu.book(aria-labelledby='navbarDropdownMenuLink')
-                div.row.navbar-custom
-                  div.col-xl-6
-                    .dropdown-item.book-type(href='#') FICTION BOOK
-                    a.dropdown-item(href='#') Crime and Mystery
-                    a.dropdown-item(href='#') Fantasy
-                    a.dropdown-item(href='#') Model Fiction
-                    a.dropdown-item(href='#') Romace
-                    a.dropdown-item(href='#') Adventure
-                  div.col-xl-6
-                    .dropdown-item.book-type(href='#') NON-FICTION BOOK
-                    a.dropdown-item(href='#') Biography and True Story
-                    a.dropdown-item(href='#') English Language Teaching
-                    a.dropdown-item(href='#') Personal Development
-                    a.dropdown-item(href='#') Lifestyle, Cooking, Health
-                    a.dropdown-item(href='#') Reference Books
-            li.nav-item
-                a.nav-link(href='#') BLOG
-            li.nav-item
-                a.nav-link(href='#') CONTACT
-        .d-flex.justify-content-between.align-items-center
-          form.form-inline.my-2.my-lg-0.search-bar
-              .input-icons
-                  i(class="fas fa-search icon")
-                  input(class="input-field form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search")
-          if user
-              ul.navbar-nav.profile-user.d-flex.justify-content-end
-                  if user.image !== null
-                      li.nav-item.profile-avatar
-                          a(href="#")
-                              img(src=user.image alt="Avatar" class="avatar-nav")
-                      li.nav-item.dropdown
-                          a(class="contact" href="#")= user.username
-                          div(class="dropdown-content")
-                              a(class="dropdown-item" href="/profile") Profile
-                              a(class="dropdown-item" href="/logOut") Log Out
-                  else
-                      i.px-2(class="fas fa-user-circle fa-3x")
-          else
-              i.px-2(class="fas fa-user-circle fa-3x")
-              a.px-2(class="logIn" href="/LogIn") LOG IN 
-              button.px-2(type="button" class="btn btn-dark") 
-                  a.logIn(href="/signUp") SIGN UP
-.d-lg-flex.half.signUp-content
-  .bg.order-1.order-md-2(style="background-image: url('signUp-background.jpg');")
-  .contents.order-2.order-md-1
-    .container
-      .row.align-items-center.justify-content-center
-        .col-md-7
-          .mb-4
-            h3 Register
-            p.mb-4 Create your Account
-          if errors
-            each error in errors
-              .alert.alert-danger= error
-          form(action='/signUp' method='POST')
-            .form-group.first
-              label(for='email') Email
-              input#email.form-control(type='email' name='email' required)
-            .form-group
-              label(for='username') Username
-              input#password.form-control(type='text' name='username' required)
-            .form-group
-              label(for='password') Password
-              input#password.form-control(type='password' name='password' required)
-            .form-group
-              label(for='re-password') Re-type Password
-              input#re-password.form-control(type='password' name='Repassword' required)
-            .form-group
-              label(for='address') Address
-              input#password.form-control(type='text' name='address' required)
-            .form-group.last.mb-3
-              label(for='phone') Phone
-              input#password.form-control(type='text' name='phone' required)
-            .d-flex.mb-5.align-items-center
-              label.control.control--checkbox.mb-3.mb-sm-0
-                span.caption
-                  | Agree our 
-                  a(href='#') Terms and Conditions
-                input(type='checkbox' checked='checked')
-                .control__indicator
-            input.btn.btn-block.btn-primary(type='submit' value='Register')
-            span.d-block.text-center.my-4.text-muted &mdash; or &mdash;
-            .social-login
-              a.facebook.btn.d-flex.justify-content-center.align-items-center(href='#')
-                span.icon-facebook.mr-3
-                |  Register with Facebook
-              a.google.btn.d-flex.justify-content-center.align-items-center(href='/signUp/google')
-                span.icon-google.mr-3
-                |  Register with  Google
+block content
+  .d-lg-flex.half.signUp-content
+    .bg.order-1.order-md-2(style="background-image: url('signUp-background.jpg');")
+    .contents.order-2.order-md-1
+      .container
+        .row.align-items-center.justify-content-center
+          .col-md-7
+            .mb-4
+              h3 Register
+              p.mb-4 Create your Account
+            if errors
+              each error in errors
+                .alert.alert-danger= error
+            form(action='/signUp' method='POST')
+              .form-group.first
+                label(for='email') Email
+                input#email.form-control(type='email' name='email' required)
+              .form-group
+                label(for='username') Username
+                input#password.form-control(type='text' name='username' required)
+              .form-group
+                label(for='password') Password
+                input#password.form-control(type='password' name='password' required)
+              .form-group
+                label(for='re-password') Re-type Password
+                input#re-password.form-control(type='password' name='Repassword' required)
+              .form-group
+                label(for='address') Address
+                input#password.form-control(type='text' name='address' required)
+              .form-group.last.mb-3
+                label(for='phone') Phone
+                input#password.form-control(type='text' name='phone' required)
+              .d-flex.mb-5.align-items-center
+                label.control.control--checkbox.mb-3.mb-sm-0
+                  span.caption
+                    | Agree our 
+                    a(href='#') Terms and Conditions
+                  input(type='checkbox' checked='checked')
+                  .control__indicator
+              input.btn.btn-block.btn-primary(type='submit' value='Register')
+              span.d-block.text-center.my-4.text-muted &mdash; or &mdash;
+              .social-login
+                a.facebook.btn.d-flex.justify-content-center.align-items-center(href='#')
+                  span.icon-facebook.mr-3
+                  |  Register with Facebook
+                a.google.btn.d-flex.justify-content-center.align-items-center(href='/signUp/google')
+                  span.icon-google.mr-3
+                  |  Register with  Google

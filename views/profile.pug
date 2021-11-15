@@ -1,133 +1,18 @@
-head
-    // Required meta tags
-    meta(charset='utf-8')
-    meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
-    // Bootstrap CSS
-    link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous')
-    title Book Store
-    // Optional JavaScript
-    // jQuery first, then Popper.js, then Bootstrap JS
-    script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous')
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous')
-    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl' crossorigin='anonymous')
-    //Link CSS
-    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous")
-    link(rel="stylesheet" href="profile.css")
-    link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css' integrity='sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay' crossorigin='anonymous')
-    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
-    script(type="text/javascript").
-        //Get the button:
-
-        // When the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function() {scrollFunction()};
-
-        function scrollFunction() {
-            var mybutton = document.getElementById("myBtn");
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                mybutton.style.display = "block";
-            } else {
-                mybutton.style.display = "none";
+extends layout.pug
+block extraHeader
+  link(rel="stylesheet" href="profile.css")
+  script(type="text/javascript").
+    function myFunction2() {
+                var x = document.getElementById("myInput2");
+                if (x.type === "password") {
+                    x.type = "text";
+                } else {
+                    x.type = "password";
+                }
             }
-        }
-
-        // When the user clicks on the button, scroll to the top of the document
-        function topFunction() {
-            document.body.scrollTop = 0; // For Safari
-            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-        }
-
-        function myFunction2() {
-            var x = document.getElementById("myInput2");
-            if (x.type === "password") {
-                x.type = "text";
-            } else {
-                x.type = "password";
-            }
-        }
-body
-    button(onclick="topFunction()" id="myBtn" title="Go to top")
-        i(class="fas fa-arrow-up")
-    header.w-100.fixed-top
-        .container-fluid
-            nav.navbar.navbar-expand-lg.navbar-light
-                a.navbar-brand(href='/')
-                    img(src="logo.png" alt="Book Store logo")
-                button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNavDropdown' aria-controls='navbarNavDropdown' aria-expanded='false' aria-label='Toggle navigation')
-                    span.navbar-toggler-icon
-                #navbarNavDropdown.collapse.navbar-collapse
-                    ul.navbar-nav
-                        li.nav-item
-                            a.nav-link(href='/') HOME
-                        li.nav-item.dropdown
-                            a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
-                                | BOOK
-                            .dropdown-menu.book(aria-labelledby='navbarDropdownMenuLink')
-                                div.row.navbar-custom
-                                    div.col-xl-6
-                                        .dropdown-item.book-type FICTION BOOK
-                                        a.dropdown-item(href='/bookType?type=Crime-and-Mystery') Crime and Mystery
-                                        a.dropdown-item(href='/bookType?type=Fantasy') Fantasy
-                                        a.dropdown-item(href='/bookType?type=Modern-Fiction') Modern Fiction
-                                        a.dropdown-item(href='/bookType?type=Romace') Romace
-                                        a.dropdown-item(href='/bookType?type=Adventure') Adventure
-                                    div.col-xl-6
-                                        .dropdown-item.book-type NON-FICTION BOOK
-                                        a.dropdown-item(href='#') Biography and True Story
-                                        a.dropdown-item(href='#') English Language Teaching
-                                        a.dropdown-item(href='#') Personal Development
-                                        a.dropdown-item(href='#') Lifestyle, Cooking, Health
-                                        a.dropdown-item(href='#') Reference Books
-                        li.nav-item.dropdown
-                            a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
-                                | E-BOOK
-                            .dropdown-menu.book(aria-labelledby='navbarDropdownMenuLink')
-                                div.row.navbar-custom
-                                    div.col-xl-6
-                                        .dropdown-item.book-type FICTION BOOK
-                                        a.dropdown-item(href='#') Crime and Mystery
-                                        a.dropdown-item(href='#') Fantasy
-                                        a.dropdown-item(href='#') Model Fiction
-                                        a.dropdown-item(href='#') Romace
-                                        a.dropdown-item(href='#') Adventure
-                                    div.col-xl-6
-                                        .dropdown-item.book-type NON-FICTION BOOK
-                                        a.dropdown-item(href='#') Biography and True Story
-                                        a.dropdown-item(href='#') English Language Teaching
-                                        a.dropdown-item(href='#') Personal Development
-                                        a.dropdown-item(href='#') Lifestyle, Cooking, Health
-                                        a.dropdown-item(href='#') Reference Books
-                        li.nav-item
-                            a.nav-link(href='#') BLOCK
-                        li.nav-item
-                            a.nav-link(href='#') CONTACT
-                .d-flex.justify-content-between.align-items-center
-                    form.form-inline.my-2.my-lg-0.search-bar
-                        .input-icons
-                            i(class="fas fa-search icon")
-                            input(class="input-field form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search")
-                    span(class="fa-stack fa-2x has-badge" data-count=cartLength)
-                        a(href="/cart")
-                            i(class="fas fa-cart-plus fa-stack-1x fa-inverse")
-                    if user
-                        ul.navbar-nav.profile-user.d-flex.justify-content-end
-                            if user.image !== null
-                                li.nav-item.profile-avatar
-                                    a(href="#")
-                                        img(src=user.image alt="Avatar" class="avatar-nav")
-                                li.nav-item.dropdown
-                                    a(class="contact" href="#")= user.username
-                                    div(class="dropdown-content")
-                                        a(class="dropdown-item" href="/profile") Profile
-                                        a(class="dropdown-item" href="/logOut") Log Out
-                            else
-                                i.px-2(class="fas fa-user-circle fa-3x")
-                    else
-                        i.px-2(class="fas fa-user-circle fa-3x")
-                        a.px-2(class="logIn" href="/LogIn") LOG IN 
-                        button.px-2(type="button" class="btn btn-dark") 
-                            a.logIn(href="/signUp") SIGN UP
+block content
     //New
-    .container-fluid
+    .container-fluid.profile
         .main-body
             form#registrationForm.form(action='/profilePage' method='post' enctype="multipart/form-data")
                 .row.d-flex.justify-content-center
@@ -243,45 +128,3 @@ body
                                                             a(href="/profile?itemId="+wishList[n]._id.valueOf())
                                                                 i(class="far fa-trash-alt fa-2x" style="color: red")
                                                     -n++;
-
-//Footer
-.footer
-  .container-fluid.row 
-    .col-6
-      h4 About Company
-      .title-line 
-      p Pellentesque mi purus, eleifend sedt commodo vel, sagittis elts vestibulum dui sagittis mlste sagittis elts.
-      ul.address-info 
-        li
-          <i class="fas fa-map-marker-alt"></i>   15 Barnes Wallis Way, 358744, USA
-        li 
-          <i class="fas fa-phone"></i>    +1 (012) 345 6789 
-        li
-          <i class="fas fa-envelope"></i>   info@yourdomain.com
-    .col-6 
-      h4 Twitter Feed!
-      .title-line 
-      ul.customer-sp
-        li 
-          <i class="fas fa-angle-right"></i> 
-            a(href="#") Customer Support
-        li 
-          <i class="fas fa-angle-right"></i> 
-            a(href="#") Documentation
-        li 
-          <i class="fas fa-angle-right"></i> 
-            a(href="#") Developer Center
-        li 
-          <i class="fas fa-angle-right"></i> 
-            a(href="/FAQs") General FAQs
-    .container-fluid.Copyright.row
-        .col-6.copyRight-title
-            h5 Copyright © 2021 yourdomian. All rights reserved.
-        .col-6
-            ul.social-list 
-                li.social-app
-                    i(class="fab fa-facebook-square fa-3x")
-                li.social-app
-                    i(class="fab fa-youtube fa-3x")
-                li.social-app
-                    i(class="fab fa-twitter-square fa-3x")
