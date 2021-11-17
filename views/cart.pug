@@ -1,30 +1,36 @@
 extends layout.pug
 block extraHeader
     link(rel="stylesheet" href="cart.css")
+    script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous')
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js")
     script(type="text/javascript").
         $(document).ready(function(){
+            
+            // Select closest .qty from the selection element
             $(document).on('click','.plus',function(){
-                var id = $(this).closest('.qty').attr('id'); // Select closest .qty from the selection element
+                let id = $(this).closest('.qty').attr('id'); 
                 $('#input'+id).val(parseInt($('#input'+id).val()) + 1 );
             });
-            $(document).on('click','.minus',function(){
-                var id = $(this).closest('.qty').attr('id'); // Select closest .qty from the selection element
-                $('#input'+id).val(parseInt($('#input'+id).val()) - 1 );
-                    if ($('#input'+id).val() == 0) {
-                        $('#input'+id).val(1);
-                    }
-            });
-        });
 
-        $("#checkAll").click(function(){
-            $('input:checkbox').not(this).prop('checked', this.checked);
+            // Select closest .qty from the selection element
+            $(document).on('click','.minus',function(){
+                let id = $(this).closest('.qty').attr('id'); 
+                $('#input'+id).val(parseInt($('#input'+id).val()) - 1 );
+                if ($('#input'+id).val() == 0) {
+                    $('#input'+id).val(1);
+                }
+                $.post('/updateCart', {
+                        productId: id,
+                        Qty: parseInt($('#input'+id).val())
+                },)
+            });
         });
 block content
     //New
     .container-fluid.form
         .main-body.row
             .col-2
-            form.card-body.col-8(method='POST' action='/order')
+            form.card-body.col-8(method='POST' action='/orderForm')
                 .cart-head.row
                     .col-1     
                     .col-5 
@@ -38,7 +44,6 @@ block content
                     each value in bookData
                         .row.cart-body
                             .col-1
-                                input(class="form-check-input checkbox-2x" name='checkbox' + bookData[n]._id.valueOf() type="checkbox")
                             .col-5.row
                                 img(src=bookData[n].bookImage[0] class="col-4" style="width: 80px; height: 80px;")
                                 p.col-8=bookData[n].bookname
@@ -47,7 +52,7 @@ block content
                             .col-2
                                 .qty(id=bookData[n]._id.valueOf())
                                     <span class="minus bg-dark">-</span>
-                                    input(id='input'+bookData[n]._id.valueOf() type="number" class="count" name='quantity '+bookData[n]._id.valueOf() value="1")
+                                    input(id='input'+bookData[n]._id.valueOf() class="count" name=bookData[n]._id.valueOf() value=cartData.cart[n].Qty)
                                     <span class="plus bg-dark">+</span>
                             .col-2
                                 a(href="/cart?itemId="+bookData[n]._id.valueOf())

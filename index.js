@@ -49,6 +49,7 @@ const addToCartRoute = require('./routers/addToCart.router');
 const addToWishListRoute = require('./routers/addToWishList.router');
 const adminRoute = require('./routers/admin.router');
 const dashboardRoute = require('./routers/dashboard.router');
+const orderRoute = require('./routers/orderForm.router');
 // Set view engine
 app.set('views', './views');
 app.set('view engine', 'pug');
@@ -82,6 +83,8 @@ app.use('/addToWishList', authMiddleware.authMiddleware, addToWishListRoute);
 app.use('/admin', adminRoute);
 
 app.use('/dashboard', adminAuth.authMiddleware, dashboardRoute);
+
+app.use('/orderForm', authMiddleware.authMiddleware, orderRoute);
 
 app.listen(process.env.PORT, () => {
   console.log(`Example app listening at http://localhost:${process.env.PORT}`);

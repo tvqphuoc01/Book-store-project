@@ -17,12 +17,21 @@ const addToCartPost = async function(req, res) {
     });
     newCart.save();
   } else {
-    const newBook = {
-      bookId: req.body.productId,
-      Qty: req.body.Qty,
-    };
-    // eslint-disable-next-line no-unused-vars
-    cartData.cart.push(newBook);
+    let checkBook = 0;
+    for (let i = 0; i < cartData.cart.length; i++) {
+      if (req.body.productId === cartData.cart[i].bookId) {
+        // eslint-disable-next-line max-len
+        cartData.cart[i].Qty = parseInt(cartData.cart[i].Qty) + parseInt(req.body.Qty);
+        checkBook = 1;
+      }
+    }
+    if (checkBook === 0) {
+      const newBook = {
+        bookId: req.body.productId,
+        Qty: req.body.Qty,
+      };
+      cartData.cart.push(newBook);
+    }
     cartData.save();
   }
 };

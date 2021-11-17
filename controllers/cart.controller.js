@@ -30,6 +30,7 @@ const cartGet = async function(req, res) {
       );
       bookData.push(book);
     }
+    res.locals.cartData = cartData;
     res.locals.cartLength = bookIdList.length;
     res.locals.bookData = bookData;
   }
