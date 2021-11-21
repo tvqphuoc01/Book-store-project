@@ -30,7 +30,7 @@ const profileGet = async function(req, res) {
     res.locals.user = userData;
     res.render('profile');
   } else {
-    res.render('profile');
+    res.render('404');
   }
 };
 

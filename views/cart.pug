@@ -9,12 +9,19 @@ block extraHeader
             // Select closest .qty from the selection element
             $(document).on('click','.plus',function(){
                 let id = $(this).closest('.qty').attr('id'); 
+                console.log($('#book'+id).text())
+                $('#book'+id).text(parseInt($('#book'+id).text()) + (parseInt($('#book'+id).text()) / parseInt($('#input'+id).val())));
                 $('#input'+id).val(parseInt($('#input'+id).val()) + 1 );
+                $.post('/updateCart', {
+                        productId: id,
+                        Qty: parseInt($('#input'+id).val())
+                },)
             });
 
             // Select closest .qty from the selection element
             $(document).on('click','.minus',function(){
                 let id = $(this).closest('.qty').attr('id'); 
+                $('#book'+id).text(parseInt($('#book'+id).text()) - (parseInt($('#book'+id).text()) / parseInt($('#input'+id).val())));
                 $('#input'+id).val(parseInt($('#input'+id).val()) - 1 );
                 if ($('#input'+id).val() == 0) {
                     $('#input'+id).val(1);
@@ -48,7 +55,7 @@ block content
                                 img(src=bookData[n].bookImage[0] class="col-4" style="width: 80px; height: 80px;")
                                 p.col-8=bookData[n].bookname
                             .col-2.bookPrice
-                                p=bookData[n].sellPrice + "$"
+                                p(id='book'+bookData[n]._id.valueOf())=parseInt(bookData[n].sellPrice) * parseInt(cartData.cart[n].Qty)
                             .col-2
                                 .qty(id=bookData[n]._id.valueOf())
                                     <span class="minus bg-dark">-</span>

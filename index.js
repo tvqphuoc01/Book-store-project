@@ -50,6 +50,7 @@ const addToWishListRoute = require('./routers/addToWishList.router');
 const adminRoute = require('./routers/admin.router');
 const dashboardRoute = require('./routers/dashboard.router');
 const orderRoute = require('./routers/orderForm.router');
+const updateCartRoute = require('./routers/updateCart.router');
 // Set view engine
 app.set('views', './views');
 app.set('view engine', 'pug');
@@ -85,6 +86,18 @@ app.use('/admin', adminRoute);
 app.use('/dashboard', adminAuth.authMiddleware, dashboardRoute);
 
 app.use('/orderForm', authMiddleware.authMiddleware, orderRoute);
+
+app.use('/updateCart', authMiddleware.authMiddleware, updateCartRoute);
+
+app.get('/404', function(req, res) {
+  res.render('404');
+});
+
+app.use(function(req, res, next) {
+  res.status(404);
+  // default to 404 page
+  res.render('404');
+});
 
 app.listen(process.env.PORT, () => {
   console.log(`Example app listening at http://localhost:${process.env.PORT}`);
