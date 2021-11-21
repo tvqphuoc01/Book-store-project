@@ -25,164 +25,82 @@ block extraHeader
             document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
         }
 block content
-    body
-        button(onclick="topFunction()" id="myBtn" title="Go to top")
-            i(class="fas fa-arrow-up")
-        header.w-100.fixed-top
-            .container-fluid
-                nav.navbar.navbar-expand-lg.navbar-light
-                    a.navbar-brand(href='/')
-                        img(src="logo.png" alt="Book Store logo")
-                    button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNavDropdown' aria-controls='navbarNavDropdown' aria-expanded='false' aria-label='Toggle navigation')
-                        span.navbar-toggler-icon
-                    #navbarNavDropdown.collapse.navbar-collapse
-                        ul.navbar-nav
-                            li.nav-item
-                                a.nav-link(href='/') HOME
-                            li.nav-item.dropdown
-                                a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
-                                    | BOOK
-                                .dropdown-menu.book(aria-labelledby='navbarDropdownMenuLink')
-                                    div.row.navbar-custom
-                                        div.col-xl-6
-                                            .dropdown-item.book-type FICTION BOOK
-                                            a.dropdown-item(href='/bookType?type=Crime-and-Mystery') Crime and Mystery
-                                            a.dropdown-item(href='/bookType?type=Fantasy') Fantasy
-                                            a.dropdown-item(href='/bookType?type=Modern-Fiction') Modern Fiction
-                                            a.dropdown-item(href='/bookType?type=Romace') Romace
-                                            a.dropdown-item(href='/bookType?type=Adventure') Adventure
-                                        div.col-xl-6
-                                            .dropdown-item.book-type NON-FICTION BOOK
-                                            a.dropdown-item(href='#') Biography and True Story
-                                            a.dropdown-item(href='#') English Language Teaching
-                                            a.dropdown-item(href='#') Personal Development
-                                            a.dropdown-item(href='#') Lifestyle, Cooking, Health
-                                            a.dropdown-item(href='#') Reference Books
-                            li.nav-item.dropdown
-                                a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
-                                    | E-BOOK
-                                .dropdown-menu.book(aria-labelledby='navbarDropdownMenuLink')
-                                    div.row.navbar-custom
-                                        div.col-xl-6
-                                            .dropdown-item.book-type(href='#') FICTION BOOK
-                                            a.dropdown-item(href='#') Crime and Mystery
-                                            a.dropdown-item(href='#') Fantasy
-                                            a.dropdown-item(href='#') Model Fiction
-                                            a.dropdown-item(href='#') Romace
-                                            a.dropdown-item(href='#') Adventure
-                                        div.col-xl-6
-                                            .dropdown-item.book-type(href='#') NON-FICTION BOOK
-                                            a.dropdown-item(href='#') Biography and True Story
-                                            a.dropdown-item(href='#') English Language Teaching
-                                            a.dropdown-item(href='#') Personal Development
-                                            a.dropdown-item(href='#') Lifestyle, Cooking, Health
-                                            a.dropdown-item(href='#') Reference Books
-                            li.nav-item
-                                a.nav-link(href='#') BLOG
-                            li.nav-item
-                                a.nav-link(href='#') CONTACT
-                    .d-flex.justify-content-between.align-items-center
-                        form.form-inline.my-2.my-lg-0.search-bar
-                            .input-icons
-                                i(class="fas fa-search icon")
-                                input(class="input-field form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search")
-                        span(class="fa-stack fa-2x has-badge" data-count=cartLength)
-                            a(href="/cart")
-                                i(class="fas fa-cart-plus fa-stack-1x fa-inverse")
-                        if user
-                            ul.navbar-nav.profile-user.d-flex.justify-content-end
-                                if user.image !== null
-                                    li.nav-item.profile-avatar
-                                        a(href="#")
-                                            img(src=user.image alt="Avatar" class="avatar-nav")
-                                    li.nav-item.dropdown
-                                        a(class="contact" href="#")= user.username
-                                        div(class="dropdown-content")
-                                            a(class="dropdown-item" href="/profile") Profile
-                                            a(class="dropdown-item" href="/logOut") Log Out
-                                else
-                                    i.px-2(class="fas fa-user-circle fa-3x")
+    .container-fluid
+        .breadcrumb-custom 
+            nav(aria-label='breadcrumb')
+                ol.breadcrumb
+                    li.breadcrumb-item
+                        a(href='/') Home
+                    li.breadcrumb-item
+                        a(href='#') Library
+                    li.breadcrumb-item.active(aria-current='page')
+                        a(href='#') Library
+    .container
+        .row.container-2
+            .wrap-1.row
+                .btn-group.col-6(role='group').sort
+                    button#btnGroupDrop1.btn.btn-secondary.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+                        | Sort By
+                    form.dropdown-menu.sortingForm(action="/bookType?type=" + bookType + '&page=' + currentPage method="POST" aria-labelledby='btnGroupDrop1' id="sortForm")
+                        .form-check.form-check-inline.form-control-lg
+                            input#inlineCheckbox1.form-check-input.checkbox-2x(type='checkbox' name='option' value='option1')
+                            label.form-check-label(for='inlineCheckbox1')='Sort By Name (A - +' + '>' + 'Z)'
+                        .form-check.form-check-inline.form-control-lg
+                            input#inlineCheckbox1.form-check-input.checkbox-2x(type='checkbox' name='option' value='option2')
+                            label.form-check-label(for='inlineCheckbox1') Sort By Price (High to Low)
+                        .form-check.form-check-inline.form-control-lg
+                            input#inlineCheckbox1.form-check-input.checkbox-2x(type='checkbox' name='option' value='option3')
+                            label.form-check-label(for='inlineCheckbox1') Sort By Price (Low to High)
+                        .form-check.form-check-inline.form-control-lg
+                            input#inlineCheckbox1.form-check-input.checkbox-2x(type='checkbox' name='option' value='option4')
+                            label.form-check-label(for='inlineCheckbox1') Sort By Stars
+                        button(type="submit" class="col-4 btn addBtn") Sort
+                form.col-6.form-inline.my-2.my-lg-0.row.search-type
+                    .input-icons.col-9
+                        input(class="input-field form-control search mr-sm-2" type="search" placeholder="Search" aria-label="Search")
+                    button(type="button" class="btn btn-searchType col-3") SEARCH
+            .wrap-2.row.products
+                if books
+                    - var n = 0;
+                    each value in books
+                        .col-xl-3.col-lg-6.product
+                            .product-head
+                                a(href="/bookPage?id=" + books[n]._id.valueOf())
+                                    img(src=books[n].bookImage[0], alt="Book")
+                                .product-head-hover
+                                    a(href="/bookPage?id=" + books[n]._id.valueOf())
+                            .product-tail
+                                a(href="/bookPage?id=" + books[n]._id.valueOf())
+                                    h4=books[n].bookname
+                                .row
+                                    if(books[n].price === books[n].sellPrice)
+                                        .col-12.sale-price='$ ' + books[n].price
+                                    else
+                                        .col-6.price='$ ' + books[n].price
+                                        .col-6.sale-price='$ ' + books[n].sellPrice
+                        -n++ ;
+            .wrap-2
+                nav(aria-label='Page navigation example')
+                    ul.pagination
+                        li.page-item
+                            a.page-link(href='#' aria-label='Previous')
+                                span(aria-hidden='true') &laquo;
+                                span.sr-only Previous
+                        if currentPage === 1
+                            li.page-item
+                                a.page-link(href='/bookType?type=' + bookType + '&page=' + parseInt(currentPage))= currentPage
+                            li.page-item
+                                a.page-link(href='/bookType?type=' + bookType + '&page=' + parseInt(currentPage + 1)) 2
+                            li.page-item
+                                a.page-link(href='/bookType?type=' + bookType + '&page=' + parseInt(currentPage + 2)) 3
                         else
-                            i.px-2(class="fas fa-user-circle fa-3x")
-                            a.px-2(class="logIn" href="/LogIn") LOG IN 
-                            button.px-2(type="button" class="btn btn-dark") 
-                                a.logIn(href="/signUp") SIGN UP
-        .container-fluid
-            .breadcrumb-custom 
-                nav(aria-label='breadcrumb')
-                    ol.breadcrumb
-                        li.breadcrumb-item
-                            a(href='/') Home
-                        li.breadcrumb-item
-                            a(href='#') Library
-                        li.breadcrumb-item.active(aria-current='page')
-                            a(href='#') Library
-        .container
-            .row.container-2
-                .wrap-1.row
-                    .btn-group.col-6(role='group').sort
-                        button#btnGroupDrop1.btn.btn-secondary.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
-                            | Sort By
-                        form.dropdown-menu.sortingForm(action="/bookType?type=" + bookType + '&page=' + currentPage method="POST" aria-labelledby='btnGroupDrop1' id="sortForm")
-                            .form-check.form-check-inline.form-control-lg
-                                input#inlineCheckbox1.form-check-input.checkbox-2x(type='checkbox' name='option' value='option1')
-                                label.form-check-label(for='inlineCheckbox1')='Sort By Name (A - +' + '>' + 'Z)'
-                            .form-check.form-check-inline.form-control-lg
-                                input#inlineCheckbox1.form-check-input.checkbox-2x(type='checkbox' name='option' value='option2')
-                                label.form-check-label(for='inlineCheckbox1') Sort By Price (High to Low)
-                            .form-check.form-check-inline.form-control-lg
-                                input#inlineCheckbox1.form-check-input.checkbox-2x(type='checkbox' name='option' value='option3')
-                                label.form-check-label(for='inlineCheckbox1') Sort By Price (Low to High)
-                            .form-check.form-check-inline.form-control-lg
-                                input#inlineCheckbox1.form-check-input.checkbox-2x(type='checkbox' name='option' value='option4')
-                                label.form-check-label(for='inlineCheckbox1') Sort By Stars
-                            button(type="submit" class="col-4 btn addBtn") Sort
-                    form.col-6.form-inline.my-2.my-lg-0.row.search-type
-                        .input-icons.col-9
-                            input(class="input-field form-control search mr-sm-2" type="search" placeholder="Search" aria-label="Search")
-                        button(type="button" class="btn btn-searchType col-3") SEARCH
-                .wrap-2.row.products
-                    if books
-                        - var n = 0;
-                        each value in books
-                            .col-xl-3.col-lg-6.product
-                                .product-head
-                                    a(href="/bookPage?id=" + books[n]._id.valueOf())
-                                        img(src=books[n].bookImage[0], alt="Book")
-                                    .product-head-hover
-                                        a(href="/bookPage?id=" + books[n]._id.valueOf())
-                                .product-tail
-                                    a(href="/bookPage?id=" + books[n]._id.valueOf())
-                                        h4=books[n].bookname
-                                    .row
-                                        if(books[n].price === books[n].sellPrice)
-                                            .col-12.sale-price='$ ' + books[n].price
-                                        else
-                                            .col-6.price='$ ' + books[n].price
-                                            .col-6.sale-price='$ ' + books[n].sellPrice
-                            -n++ ;
-                .wrap-2
-                    nav(aria-label='Page navigation example')
-                        ul.pagination
                             li.page-item
-                                a.page-link(href='#' aria-label='Previous')
-                                    span(aria-hidden='true') &laquo;
-                                    span.sr-only Previous
-                            if currentPage === 1
-                                li.page-item
-                                    a.page-link(href='/bookType?type=' + bookType + '&page=' + parseInt(currentPage))= currentPage
-                                li.page-item
-                                    a.page-link(href='/bookType?type=' + bookType + '&page=' + parseInt(currentPage + 1)) 2
-                                li.page-item
-                                    a.page-link(href='/bookType?type=' + bookType + '&page=' + parseInt(currentPage + 2)) 3
-                            else
-                                li.page-item
-                                    a.page-link(href='/bookType?type=' + bookType + '&page=' + parseInt(currentPage - 1))=currentPage - 1
-                                li.page-item
-                                    a.page-link(href='/bookType?type=' + bookType + '&page=' + currentPage)=currentPage
-                                li.page-item
-                                    a.page-link(href='/bookType?type=' + bookType + '&page=' + parseInt(currentPage + 1))=currentPage + 1
+                                a.page-link(href='/bookType?type=' + bookType + '&page=' + parseInt(currentPage - 1))=currentPage - 1
                             li.page-item
-                                a.page-link(href='#' aria-label='Next')
-                                    span(aria-hidden='true') &raquo;
-                                    span.sr-only Next
+                                a.page-link(href='/bookType?type=' + bookType + '&page=' + currentPage)=currentPage
+                            li.page-item
+                                a.page-link(href='/bookType?type=' + bookType + '&page=' + parseInt(currentPage + 1))=currentPage + 1
+                        li.page-item
+                            a.page-link(href='#' aria-label='Next')
+                                span(aria-hidden='true') &raquo;
+                                span.sr-only Next
