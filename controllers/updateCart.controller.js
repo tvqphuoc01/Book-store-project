@@ -18,6 +18,7 @@ const updateCart = async function(req, res) {
       }
     }
     cartData.save();
+    res.end();
   } else {
     res.render('404');
   }
