@@ -1,0 +1,164 @@
+extends layout.pug
+    
+block content                
+    #carouselExampleIndicators.carousel.slide(data-ride='carousel' data-interval="4000")
+        ol.carousel-indicators
+            li.active(data-target='#carouselExampleIndicators' data-slide-to='0')
+            li(data-target='#carouselExampleIndicators' data-slide-to='1')
+            li(data-target='#carouselExampleIndicators' data-slide-to='2')
+            li(data-target='#carouselExampleIndicators' data-slide-to='3')
+        .carousel-inner
+            .carousel-item.active
+                img.d-block.w-100(src='slide1.jpg' alt='First slide')
+            .carousel-item
+                img.d-block.w-100(src='slide2.jpg' alt='Second slide')
+            .carousel-item
+                img.d-block.w-100(src='slide3.jpg' alt='Third slide')
+            .carousel-item
+                img.d-block.w-100(src='slide4.jpg' alt='Third slide')
+        a.carousel-control-prev(href='#carouselExampleIndicators' role='button' data-slide='prev')
+            span.carousel-control-prev-icon(aria-hidden='true')
+            span.sr-only Previous
+        a.carousel-control-next(href='#carouselExampleIndicators' role='button' data-slide='next')
+            span.carousel-control-next-icon(aria-hidden='true')
+            span.sr-only Next
+    .container
+        .row.container-1
+            .col-xl-3.col-md-6
+                .tag-icon
+                    em(class="fas fa-truck")
+                    p 30-DAYS RETURN
+            .col-xl-3.col-md-6
+                .tag-icon
+                    em(class="fas fa-money-bill-alt")
+                    p FREE SHIPPING
+            .col-xl-3.col-md-6
+                .tag-icon
+                    em(class="far fa-calendar-alt")
+                    p CUSTOMER CARE
+            .col-xl-3.col-md-6
+                .tag-icon
+                    em(class="fas fa-shield-alt")
+                    p SAFE SHIPPING
+    .container
+        .row.container-2
+            .wrap-1
+                h3 FEATURED PRODUCT
+            .wrap-2.row 
+                .col-xl-3.col-lg-6.product
+                    .product-head
+                        a(href="/bookPage?id=6175266874d07fbdecd2d0fe")
+                            img(src="book8.png", alt="Book")
+                        .product-head-hover
+                            a(href="/bookPage?id=6175266874d07fbdecd2d0fe")
+                    .product-tail
+                        a(href="/bookPage?id=6175266874d07fbdecd2d0fe")
+                            h4 Life Style
+                        .row
+                            .col-6.price  $300
+                            .col-6.sale-price  $250
+                .col-xl-3.col-lg-6.product
+                    .product-head
+                        a(href="#")
+                            img(src="book6.png", alt="Book")
+                        .product-head-hover
+                            a(href="#")
+                    .product-tail
+                        a(href="#")
+                            h4 Vacation
+                        .row
+                            .col-6.price  $250
+                            .col-6.sale-price  $200
+                .col-xl-3.col-lg-6.product
+                    .product-head
+                        a(href="#")
+                            img(src="book1.png", alt="Book")
+                        .product-head-hover
+                            a(href="#")
+                    .product-tail
+                        a(href="#")
+                            h4 Business
+                        .row
+                            .col-6.price  $250
+                            .col-6.sale-price  $180
+                .col-xl-3.col-lg-6.product
+                    .product-head
+                        a(href="#")
+                            img(src="book2.png", alt="Book")
+                        .product-head-hover
+                            a(href="#")
+                    .product-tail
+                        a(href="#")
+                            h4 Cooking
+                        .row
+                            .col-6.price  $180
+                            .col-6.sale-price  $100
+    .container
+        .row.container-2
+            .wrap-1-Blog
+                h3 LATEST FROM OUT BLOG
+            .wrap-2-Blog.row 
+                .col-xl-4.col-md-12.blog
+                    .product-head-blog
+                        a(href="#")
+                            img(src="blog1.jpg", alt="blog-img")
+                    .product-tail-blog
+                        a(href="#")
+                            h4 A Collection Of Poem
+                        h5 dd-mm-yyyy
+                        p Nulla eleifend vel risus eget ultricies. Praesent sed tortor sem. Vestibulum...
+                        button(type="button" class="btn btn-info") Read More
+                .col-xl-4.col-md-12.blog
+                    .product-head-blog
+                        a(href="#")
+                            img(src="blog2.jpg", alt="blog-img")
+                    .product-tail-blog
+                        a(href="#")
+                            h4 Top Selling Book
+                        h5 dd-mm-yyyy
+                        p Nulla eleifend vel risus eget ultricies. Praesent sed tortor sem. Vestibulum...
+                        button(type="button" class="btn btn-info") Read More
+                .col-xl-4.col-md-12.blog
+                    .product-head-blog
+                        a(href="#")
+                            img(src="blog3.jpg", alt="blog-img")
+                    .product-tail-blog
+                        a(href="#")
+                            h4 Top Book To Read
+                        h5 dd-mm-yyyy
+                        p Nulla eleifend vel risus eget ultricies. Praesent sed tortor sem. Vestibulum...
+                        button(type="button" class="btn btn-info") Read More
+    .container.brand
+        #carouselExampleIndicators2.carousel.slide.brandSlide(data-ride='carousel' data-interval="4000")
+            ol.carousel-indicators
+                li.active(data-target='#carouselExampleIndicators2' data-slide-to='0')
+                li(data-target='#carouselExampleIndicators2' data-slide-to='1')
+                li(data-target='#carouselExampleIndicators2' data-slide-to='2')
+                li(data-target='#carouselExampleIndicators2' data-slide-to='3')
+            .carousel-inner
+                .carousel-item.active.row
+                    img.d-inline-block.col-3(src='logo1.png' alt='First slide')
+                    img.d-inline-block.col-3(src='logo2.png')
+                    img.d-inline-block.col-3(src='logo3.png')
+                    img.d-inline-block.col-3(src='logo4.png')
+                .carousel-item
+                    img.d-inline-block.col-3(src='logo1.png' alt='First slide')
+                    img.d-inline-block.col-3(src='logo2.png')
+                    img.d-inline-block.col-3(src='logo3.png')
+                    img.d-inline-block.col-3(src='logo4.png')
+                .carousel-item
+                    img.d-inline-block.col-3(src='logo1.png' alt='First slide')
+                    img.d-inline-block.col-3(src='logo2.png')
+                    img.d-inline-block.col-3(src='logo3.png')
+                    img.d-inline-block.col-3(src='logo4.png')
+                .carousel-item
+                    img.d-inline-block.col-3(src='logo1.png' alt='First slide')
+                    img.d-inline-block.col-3(src='logo2.png')
+                    img.d-inline-block.col-3(src='logo3.png')
+                    img.d-inline-block.col-3(src='logo4.png')
+            a.carousel-control-prev(href='#carouselExampleIndicators2' role='button' data-slide='prev')
+                span.carousel-control-prev-icon(aria-hidden='true')
+                span.sr-only Previous
+            a.carousel-control-next(href='#carouselExampleIndicators2' role='button' data-slide='next')
+                span.carousel-control-next-icon(aria-hidden='true')
+                span.sr-only Next

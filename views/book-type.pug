@@ -1,0 +1,106 @@
+extends layout.pug
+block extraHeader
+    link(rel="stylesheet" href="book-type.css")
+    // AJAX
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js")
+
+    script(type="text/javascript").
+        //Get the button:
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            var mybutton = document.getElementById("myBtn");
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+block content
+    .container-fluid
+        .breadcrumb-custom 
+            nav(aria-label='breadcrumb')
+                ol.breadcrumb
+                    li.breadcrumb-item
+                        a(href='/') Home
+                    li.breadcrumb-item
+                        a(href='#') Library
+                    li.breadcrumb-item.active(aria-current='page')
+                        a(href='#') Library
+    .container
+        .row.container-2
+            .wrap-1.row
+                .btn-group.col-6(role='group').sort
+                    button#btnGroupDrop1.btn.btn-secondary.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+                        | Sort By
+                    form.dropdown-menu.sortingForm(action="/bookType?type=" + bookType + '&page=' + currentPage method="POST" aria-labelledby='btnGroupDrop1' id="sortForm")
+                        .form-check.form-check-inline.form-control-lg
+                            input#inlineCheckbox1.form-check-input.checkbox-2x(type='checkbox' name='option' value='option1')
+                            label.form-check-label(for='inlineCheckbox1')='Sort By Name (A - +' + '>' + 'Z)'
+                        .form-check.form-check-inline.form-control-lg
+                            input#inlineCheckbox1.form-check-input.checkbox-2x(type='checkbox' name='option' value='option2')
+                            label.form-check-label(for='inlineCheckbox1') Sort By Price (High to Low)
+                        .form-check.form-check-inline.form-control-lg
+                            input#inlineCheckbox1.form-check-input.checkbox-2x(type='checkbox' name='option' value='option3')
+                            label.form-check-label(for='inlineCheckbox1') Sort By Price (Low to High)
+                        .form-check.form-check-inline.form-control-lg
+                            input#inlineCheckbox1.form-check-input.checkbox-2x(type='checkbox' name='option' value='option4')
+                            label.form-check-label(for='inlineCheckbox1') Sort By Stars
+                        button(type="submit" class="col-4 btn addBtn") Sort
+                form.col-6.form-inline.my-2.my-lg-0.row.search-type
+                    .input-icons.col-9
+                        input(class="input-field form-control search mr-sm-2" type="search" placeholder="Search" aria-label="Search")
+                    button(type="button" class="btn btn-searchType col-3") SEARCH
+            .wrap-2.row.products
+                if books
+                    - var n = 0;
+                    each value in books
+                        .col-xl-3.col-lg-6.product
+                            .product-head
+                                a(href="/bookPage?id=" + books[n]._id.valueOf())
+                                    img(src=books[n].bookImage[0], alt="Book")
+                                .product-head-hover
+                                    a(href="/bookPage?id=" + books[n]._id.valueOf())
+                            .product-tail
+                                a(href="/bookPage?id=" + books[n]._id.valueOf())
+                                    h4=books[n].bookname
+                                .row
+                                    if(books[n].price === books[n].sellPrice)
+                                        .col-12.sale-price='$ ' + books[n].price
+                                    else
+                                        .col-6.price='$ ' + books[n].price
+                                        .col-6.sale-price='$ ' + books[n].sellPrice
+                        -n++ ;
+            .wrap-2
+                nav(aria-label='Page navigation example')
+                    ul.pagination
+                        li.page-item
+                            a.page-link(href='#' aria-label='Previous')
+                                span(aria-hidden='true') &laquo;
+                                span.sr-only Previous
+                        if currentPage === 1
+                            li.page-item
+                                a.page-link(href='/bookType?type=' + bookType + '&page=' + parseInt(currentPage))= currentPage
+                            li.page-item
+                                a.page-link(href='/bookType?type=' + bookType + '&page=' + parseInt(currentPage + 1)) 2
+                            li.page-item
+                                a.page-link(href='/bookType?type=' + bookType + '&page=' + parseInt(currentPage + 2)) 3
+                        else
+                            li.page-item
+                                a.page-link(href='/bookType?type=' + bookType + '&page=' + parseInt(currentPage - 1))=currentPage - 1
+                            li.page-item
+                                a.page-link(href='/bookType?type=' + bookType + '&page=' + currentPage)=currentPage
+                            li.page-item
+                                a.page-link(href='/bookType?type=' + bookType + '&page=' + parseInt(currentPage + 1))=currentPage + 1
+                        li.page-item
+                            a.page-link(href='#' aria-label='Next')
+                                span(aria-hidden='true') &raquo;
+                                span.sr-only Next

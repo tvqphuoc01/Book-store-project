@@ -1,0 +1,48 @@
+link#bootstrap-css(href='//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css' rel='stylesheet')
+link(rel='stylesheet' href='orderForm.css')
+script(src='//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js')
+script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+// ---- Include the above in your HEAD tag --------
+.container.register
+  .row
+    .col-md-3.register-left
+      img(src='https://image.ibb.co/n7oTvU/logo_white.png' alt='')
+      h3 Welcome
+      p You are 30 seconds away from complete your Order!
+      a(href="/cart") BACK TO CART
+      br
+    .col-md-9.register-right
+      #myTabContent.tab-content
+        #home.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='home-tab')
+          h3.register-heading Confirm Your Order
+          .row.register-form
+            .col-md-6
+              .form-group
+                input.form-control(type='text' placeholder='First Name *' value='')
+              .form-group
+                input.form-control(type='text' placeholder='Last Name *' value='')
+              .form-group
+                input.form-control(type='text' placeholder='Address *' value='')
+              .form-group
+                select.form-control
+                  option.hidden(selected='' disabled='') Please select your shipping methods
+                  option Fast
+                  option Medium
+                  option Slow
+            .col-md-6
+              .form-group
+                input.form-control(type='email' placeholder='Your Email *' value='')
+              .form-group
+                input.form-control(type='text' minlength='10' maxlength='10' name='txtEmpPhone' placeholder='Your Phone *' value='')
+              .form-group
+                select.form-control
+                  option.hidden(selected='' disabled='') Gender
+                  option Male
+                  option Female
+              .form-group
+                select.form-control
+                  option.hidden(selected='' disabled='') Please select your payment methods
+                  option COD
+                  option Credit cards (VISA/Master Card)
+                  option Mobile payments
+              input.btnRegister(type='submit' value='Order')

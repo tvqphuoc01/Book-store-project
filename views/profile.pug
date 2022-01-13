@@ -1,0 +1,130 @@
+extends layout.pug
+block extraHeader
+  link(rel="stylesheet" href="profile.css")
+  script(type="text/javascript").
+    function myFunction2() {
+                var x = document.getElementById("myInput2");
+                if (x.type === "password") {
+                    x.type = "text";
+                } else {
+                    x.type = "password";
+                }
+            }
+block content
+    //New
+    .container-fluid.profile
+        .main-body
+            form#registrationForm.form(action='/profilePage' method='post' enctype="multipart/form-data")
+                .row.d-flex.justify-content-center
+                    .col-lg-3
+                        .card.border-ra10
+                            .card-body
+                                .d-flex.flex-column.align-items-center.text-center
+                                    .form-group
+                                        img.rounded-circle.p-1(src=user.image alt='User Avatar')
+                                    .form-group
+                                        .upload-btn-wrapper
+                                            button#upload_label.btn-upload.btn(for='Avatar')
+                                                i.fa.fa-camera.pad-7(aria-hidden='true')
+                                            input#Avatar(type='file' name='avatar')
+                                        .mt-3
+                                            h4= user.username
+                                            .text-secondary.mb-1.flex-control
+                                    .form-group.row#myTab.nav.nav-tabs.card-header-tabs(role='tablist')
+                                        button#info-tab.active.btn.btn-control-profile.profile-info.col-12(data-toggle='tab' href='#info' role='tab' aria-controls='cart' aria-selected='true') YOUR INFORMATION
+                                        a(href="/cart").col-12
+                                            button.btn.btn-control-profile.profile-cart.col-12(type="button") YOUR CART
+                                        button#wish-tab.btn.btn-control-profile.profile-wish-list.col-12(data-toggle='tab' href='#wish' role='tab' aria-controls='wish' aria-selected='false') WISH LIST
+                                        button(type="button" class="btn btn-control-profile profile-order col-12") YOUR ORDER
+                                        button(type="button" class="btn btn-control-profile profile-history col-12") HISTORY
+                    .col-lg-8
+                        .card.border-ra10
+                            .card-body
+                                #myTabContent.tab-content
+                                    #info.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='cart-tab')
+                                        .form-group
+                                            .row.mb-4.d-flex.align-items-center
+                                                .col-sm-3
+                                                    label(for='first_name')
+                                                        h6.mb-0.d-flex.align-items-center First Name
+                                                .col-sm-9.text-secondary
+                                                    input#first_name.form-control(type='text' name='firstName' value=user.firstName title='enter your first name if any.')
+                                        .form-group  
+                                            .row.mb-4.d-flex.align-items-center
+                                                .col-sm-3
+                                                    label(for='last_name')
+                                                        h6.mb-0.d-flex.align-items-center Last Name
+                                                .col-sm-9.text-secondary
+                                                    input#last_name.form-control(type='text' name='lastName' value=user.lastName title='enter your last name if any.')
+                                                
+                                        .form-group
+                                            .row.mb-4.d-flex.align-items-center
+                                                .col-sm-3
+                                                    label(for='email')
+                                                        h6.mb-0.d-flex.align-items-center Email
+                                                .col-sm-9.text-secondary
+                                                    input#last_name.form-control(type='text' name='email' value=user.email)                                                   
+                                        .form-group
+                                            .row.mb-4.d-flex.align-items-center
+                                                .col-sm-3
+                                                    label(for='phone')
+                                                        h6.mb-0.d-flex.align-items-center Phone
+                                                .col-sm-9.text-secondary
+                                                    input#phone.form-control(type='text' name='phone' value=user.phone)
+                                        .form-group  
+                                            .row.mb-4.d-flex.align-items-center
+                                                .col-sm-3
+                                                    label(for='address')
+                                                        h6.mb-0.d-flex.align-items-center Address
+                                                .col-sm-9.text-secondary
+                                                    input#address.form-control(type='text' name='address' value=user.address)
+                                        .form-group  
+                                            .row.mb-4.d-flex.align-items-center
+                                                .col-sm-3
+                                                    label(for='password')
+                                                    h6.mb-0.d-flex.align-items-center Password
+                                                .col-sm-9.text-secondary
+                                                    input#myInput2.form-control(type='password' name='password' value=user.password)                                                   
+                                        .form-group 
+                                            .row.mb-4.d-flex.align-items-center
+                                                .col-sm-3
+                                                .col-sm-9
+                                                    .show-pass
+                                                        input(type="checkbox" onclick="myFunction2()") 
+                                                        |   Show Password
+                                        .form-group                  
+                                            .row
+                                                .col-sm-12.flex-apply-btn
+                                                    .save-btn
+                                                        input.btn.btn-lg.btn-success.px-4(type='submit' value='Save')
+                                                    .reset-btn
+                                                        input.btn.btn-lg.px-4(type='reset' value='Reset')
+                                                    .logOut-btn
+                                                        a(href='/logOut' id='logOut')
+                                                            input#logOut.btn.btn-lg.btn-danger.px-4(type='button' value='Log Out')
+                                    #wish.tab-pane.fade.p-3(role='tabpanel' aria-labelledby='wish-tab')
+                                        .cart-head.row
+                                            .col-1     
+                                            .col-5 
+                                                p Book
+                                            .col-2
+                                                p Price
+                                            .col-2
+                                            .col-2
+                                        .cart-body
+                                            - var n = 0;
+                                                each value in wishList
+                                                    .row.cart-body
+                                                        .col-1
+                                                        .col-5.row
+                                                            img(src=wishList[n].bookImage[0] class="col-4" style="width: 80px; height: 80px;")
+                                                            p.col-8=wishList[n].bookname
+                                                        .col-2.bookPrice
+                                                            p=wishList[n].sellPrice + "$"
+                                                        .col-2
+                                                            a(href="/bookPage?id=" + wishList[n]._id.valueOf())
+                                                                button(type="button" class="btn btn-success") Go to Shop
+                                                        .col-2
+                                                            a(href="/profile?itemId="+wishList[n]._id.valueOf())
+                                                                i(class="far fa-trash-alt fa-2x" style="color: red")
+                                                    -n++;

@@ -1,0 +1,79 @@
+extends layout.pug
+block extraHeader
+    link(rel="stylesheet" href="cart.css")
+    script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous')
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js")
+    script(type="text/javascript").
+        $(document).ready(function(){
+            
+            // Select closest .qty from the selection element
+            $(document).on('click','.plus',function(){
+                let id = $(this).closest('.qty').attr('id'); 
+                console.log($('#book'+id).text())
+                $('#book'+id).text(parseInt($('#book'+id).text()) + (parseInt($('#book'+id).text()) / parseInt($('#input'+id).val())));
+                $('#input'+id).val(parseInt($('#input'+id).val()) + 1 );
+                $.post('/updateCart', {
+                        productId: id,
+                        Qty: parseInt($('#input'+id).val())
+                },)
+            });
+
+            // Select closest .qty from the selection element
+            $(document).on('click','.minus',function(){
+                let id = $(this).closest('.qty').attr('id'); 
+                $('#book'+id).text(parseInt($('#book'+id).text()) - (parseInt($('#book'+id).text()) / parseInt($('#input'+id).val())));
+                $('#input'+id).val(parseInt($('#input'+id).val()) - 1 );
+                if ($('#input'+id).val() == 0) {
+                    $('#input'+id).val(1);
+                }
+                $.post('/updateCart', {
+                        productId: id,
+                        Qty: parseInt($('#input'+id).val())
+                },)
+            });
+        });
+block content
+    //New
+    .container-fluid.form
+        .main-body.row
+            .col-2
+            form.card-body.col-8(method='POST' action='/orderForm')
+                .cart-head.row
+                    .col-1     
+                    .col-5 
+                        p Book
+                    .col-2
+                        p Price
+                    .col-2
+                        p Qty
+                    .col-2
+                - var n = 0;
+                    each value in bookData
+                        .row.cart-body
+                            .col-1
+                            .col-5.row
+                                img(src=bookData[n].bookImage[0] class="col-4" style="width: 80px; height: 80px;")
+                                p.col-8=bookData[n].bookname
+                            .col-2.bookPrice
+                                p(id='book'+bookData[n]._id.valueOf())=parseInt(bookData[n].sellPrice) * parseInt(cartData.cart[n].Qty)
+                            .col-2
+                                .qty(id=bookData[n]._id.valueOf())
+                                    <span class="minus bg-dark">-</span>
+                                    input(id='input'+bookData[n]._id.valueOf() class="count" name=bookData[n]._id.valueOf() value=cartData.cart[n].Qty)
+                                    <span class="plus bg-dark">+</span>
+                            .col-2
+                                a(href="/cart?itemId="+bookData[n]._id.valueOf())
+                                    i(class="far fa-trash-alt fa-2x" style="color: red")
+                        -n++ ;
+                .cart-tail
+                    .row.d-flex.justify-content-end
+                        .col-8
+                        <div class="input-group mb-3 col-4">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Promo Code</span>
+                            </div>
+                            <input type="text" name='promoCode' class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                        </div>
+                    .row.d-flex.justify-content-end
+                        button(type="submit" class="btn") ORDER
+            .col-2
