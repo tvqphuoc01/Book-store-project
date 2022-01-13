@@ -26,96 +26,88 @@ aside#show-side-navigation1.sidebar.position-fixed.top-0.left-0.overflow-auto.h-
       h5.fs-6.mb-0
         a.text-decoration-none(href='#') ADMIN
   .list-group#myTab(role='tablist')
-    a.list-group-item.list-group-item-action#dashboard-tab.dashboard(data-toggle='tab' href='#dashboard' role='tab' aria-controls='dashboard' aria-selected='true') DASHBOARD
-    a.list-group-item.list-group-item-action#email-tab.email(data-toggle='tab' href='#email' role='tab' aria-controls='email' aria-selected='true') MAIL
-    a.list-group-item.list-group-item-action#chart-tab.chart(data-toggle='tab' href='#chart' role='tab' aria-controls='chart' aria-selected='true') STATISTICAL
-    a.list-group-item.list-group-item-action#book-tab.book(data-toggle='tab' href='#book' role='tab' aria-controls='book' aria-selected='true') BOOK CONTROLS 
-    a.list-group-item.list-group-item-action#blog-tab.blog(data-toggle='tab' href='#blog' role='tab' aria-controls='blog' aria-selected='true') BLOG CONTROLS 
-    a.list-group-item.list-group-item-action#order-tab.order(data-toggle='tab' href='#order' role='tab' aria-controls='order' aria-selected='true') ORDER CONTROLS 
-    a.list-group-item.list-group-item-action#client-tab.client(data-toggle='tab' href='#client' role='tab' aria-controls='client' aria-selected='true') CLIENT CONTROLS 
-    a.list-group-item.list-group-item-action#income-tab.income(data-toggle='tab' href='#income' role='tab' aria-controls='income' aria-selected='true') INCOME
-div#dashboard.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='dashboard-tab')    
-  section#wrapper
-    .p-4
-      .welcome
-        .content.rounded-3.p-3
-          h1.fs-3 Welcome to Dashboard
-          p.mb-0 Hello, welcome to dashboard!
-      section.statistics.mt-4
-        .row
-          .col-lg-4
-            .box.d-flex.rounded-2.align-items-center.mb-4.mb-lg-0.p-3.justify-content-center
-              i.uil-envelope-shield.fs-2.text-center.bg-primary.rounded-circle.fas.fa-users.fa-2x
-              .ms-3
-                .d-flex.align-items-center
-                  // Number of Users
-                  h3.mb-0=NumberOfUsers
-                  span.d-block.ms-2 Users
-                p.fs-normal.mb-0 Number of Users
-          .col-lg-4
-            .box.d-flex.rounded-2.align-items-center.mb-4.mb-lg-0.p-3.justify-content-center
-              i.uil-file.fs-2.text-center.bg-danger.rounded-circle.fas.fa-book.fa-2x
-              .ms-3
-                .d-flex.align-items-center
-                  // Number of Books
-                  h3.mb-0=NumberOfBooks
-                  span.d-block.ms-2 Books
-                p.fs-normal.mb-0 Number of Books
-          .col-lg-4
-            .box.d-flex.rounded-2.align-items-center.p-3.justify-content-center
-              i.uil-users-alt.fs-2.text-center.bg-success.rounded-circle.fas.fa-newspaper.fa-2x
-              .ms-3
-                .d-flex.align-items-center
-                  // Number of Blogs
-                  h3.mb-0 5,245
-                  span.d-block.ms-2 Blogs
-                p.fs-normal.mb-0 Number of Blogs
-      section.charts.mt-4
-        .row
-          .col-lg-6
-            .chart-container.rounded-2.p-3
-              h3.fs-6.mb-3 Number of Orders in a Week
-              canvas#myChart
-          .col-lg-6.row
-            .chart-container.rounded-2.p-3.col-6
-              h3.fs-6.mb-3 Books Sell By Type
-              canvas#myChart2
-            .chart-container.rounded-2.p-3.col-6
-              h3.fs-6.mb-3 Order Status
-              canvas#myChart3
-      section.statis.mt-4.text-center
-        .row
-          .col-md-6.col-lg-3.mb-4.mb-lg-0
-            .box.bg-primary.p-3
-              i.uil-eye
-              h3=pageViews
-              p.lead Page views
-          .col-md-6.col-lg-3.mb-4.mb-lg-0
-            .box.bg-danger.p-3
-              i.uil-user
-              h3=NumberOfUsers
-              p.lead User registered
-          .col-md-6.col-lg-3.mb-4.mb-md-0
-            .box.bg-warning.p-3
-              i.uil-shopping-cart
-              h3 5,154
-              p.lead Product sales
-          .col-md-6.col-lg-3
-            .box.bg-success.p-3
-              i.uil-feedback
-              h3 5,154
-              p.lead Transactions
-      section.charts.mt-4
-        .chart-container.p-3
-          h3.fs-6.mb-3 Order By Month
-          div
-            canvas#myChart4(width='100%')
-#email.tab-pane.fade.show(role='tabpanel' aria-labelledby='email-tab')    
-#chart.tab-pane.fade.show(role='tabpanel' aria-labelledby='chart-tab')    
-#book.tab-pane.fade.show(role='tabpanel' aria-labelledby='book-tab')    
-#blog.tab-pane.fade.show(role='tabpanel' aria-labelledby='blog-tab')    
-#order.tab-pane.fade.show(role='tabpanel' aria-labelledby='order-tab')    
-#client.tab-pane.fade.show(role='tabpanel' aria-labelledby='client-tab')   
-#income.tab-pane.fade.show(role='tabpanel' aria-labelledby='client-tab')   
+    a.list-group-item.list-group-item-action#dashboard-tab.dashboard.active(data-toggle='tab' href='#dashboard' role='tab' aria-controls='dashboard' aria-selected='true') DASHBOARD
+    a.list-group-item.list-group-item-action#email-tab.email(data-toggle='tab' href='#email' role='tab' aria-controls='email' aria-selected='false') MAIL
+    a.list-group-item.list-group-item-action#chart-tab.chart(data-toggle='tab' href='#chart' role='tab' aria-controls='chart' aria-selected='false') STATISTICAL
+    a.list-group-item.list-group-item-action#book-tab.book(data-toggle='tab' href='#book' role='tab' aria-controls='book' aria-selected='false') BOOK CONTROLS 
+    a.list-group-item.list-group-item-action#blog-tab.blog(data-toggle='tab' href='#blog' role='tab' aria-controls='blog' aria-selected='false') BLOG CONTROLS 
+    a.list-group-item.list-group-item-action#order-tab.order(data-toggle='tab' href='#order' role='tab' aria-controls='order' aria-selected='false') ORDER CONTROLS 
+    a.list-group-item.list-group-item-action#client-tab.client(data-toggle='tab' href='#client' role='tab' aria-controls='client' aria-selected='false') CLIENT CONTROLS 
+    a.list-group-item.list-group-item-action#income-tab.income(data-toggle='tab' href='#income' role='tab' aria-controls='income' aria-selected='false') INCOME
+#myTabContent.tab-content
+  #dashboard.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='dashboard-tab')    
+    section#wrapper
+      .p-4
+        .welcome
+          .content.rounded-3.p-3
+            h1.fs-3 Welcome to Dashboard
+            p.mb-0 Hello, welcome to dashboard!
+        section.statistics.mt-4
+          .row
+            .col-lg-4
+              .box.d-flex.rounded-2.align-items-center.mb-4.mb-lg-0.p-3.justify-content-center
+                i.uil-envelope-shield.fs-2.text-center.bg-primary.rounded-circle.fas.fa-users.fa-2x
+                .ms-3
+                  .d-flex.align-items-center
+                    // Number of Users
+                    h3.mb-0=NumberOfUsers
+                    span.d-block.ms-2 Users
+                  p.fs-normal.mb-0 Number of Users
+            .col-lg-4
+              .box.d-flex.rounded-2.align-items-center.mb-4.mb-lg-0.p-3.justify-content-center
+                i.uil-file.fs-2.text-center.bg-danger.rounded-circle.fas.fa-book.fa-2x
+                .ms-3
+                  .d-flex.align-items-center
+                    // Number of Books
+                    h3.mb-0=NumberOfBooks
+                    span.d-block.ms-2 Books
+                  p.fs-normal.mb-0 Number of Books
+            .col-lg-4
+              .box.d-flex.rounded-2.align-items-center.p-3.justify-content-center
+                i.uil-users-alt.fs-2.text-center.bg-success.rounded-circle.fas.fa-newspaper.fa-2x
+                .ms-3
+                  .d-flex.align-items-center
+                    // Number of Blogs
+                    h3.mb-0 5,245
+                    span.d-block.ms-2 Blogs
+                  p.fs-normal.mb-0 Number of Blogs
+        section.charts.mt-4
+          .chart-container.rounded-2.p-3
+            h3.fs-6.mb-3 Number of Orders in a Week
+            canvas#myChart
+        section.statis.mt-4.text-center
+          .row
+            .col-md-6.col-lg-3.mb-4.mb-lg-0
+              .box.bg-primary.p-3
+                i.uil-eye
+                h3=pageViews
+                p.lead Page views
+            .col-md-6.col-lg-3.mb-4.mb-lg-0
+              .box.bg-danger.p-3
+                i.uil-user
+                h3=NumberOfUsers
+                p.lead User registered
+            .col-md-6.col-lg-3.mb-4.mb-md-0
+              .box.bg-warning.p-3
+                i.uil-shopping-cart
+                h3 5,154
+                p.lead Product sales
+            .col-md-6.col-lg-3
+              .box.bg-success.p-3
+                i.uil-feedback
+                h3 5,154
+                p.lead Transactions
+        section.charts.mt-4
+          .chart-container.p-3
+            h3.fs-6.mb-3 Order By Month
+            div
+              canvas#myChart4(width='100%')
+  #email.tab-pane.fade(role='tabpanel' aria-labelledby='email-tab')    
+  #chart.tab-pane.fade(role='tabpanel' aria-labelledby='chart-tab')    
+  #book.tab-pane.fade(role='tabpanel' aria-labelledby='book-tab')
+  #blog.tab-pane.fade(role='tabpanel' aria-labelledby='blog-tab')    
+  #order.tab-pane.fade(role='tabpanel' aria-labelledby='order-tab')    
+  #client.tab-pane.fade(role='tabpanel' aria-labelledby='client-tab')   
+  #income.tab-pane.fade(role='tabpanel' aria-labelledby='client-tab')   
 
 script(type="text/javascript" src="data.js")

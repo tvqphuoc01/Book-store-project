@@ -1,8 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
 const ctx = document.getElementById('myChart').getContext('2d');
-const ctx2 = document.getElementById('myChart2').getContext('2d');
-const ctx3 = document.getElementById('myChart3').getContext('2d');
 const ctx4 = document.getElementById('myChart4').getContext('2d');
 
 const userData = usersData; // Load Data from Locals var
@@ -42,49 +40,6 @@ const myChart = new Chart(ctx, {
         beginAtZero: true,
       },
     },
-  },
-});
-
-
-const myChart2 = new Chart(ctx2, {
-  type: 'doughnut',
-  data: {
-    labels: [
-      'Red',
-      'Blue',
-      'Yellow',
-    ],
-    datasets: [{
-      label: 'My First Dataset',
-      data: [300, 50, 100],
-      backgroundColor: [
-        'rgb(255, 99, 132)',
-        'rgb(54, 162, 235)',
-        'rgb(255, 205, 86)',
-      ],
-      hoverOffset: 4,
-    }],
-  },
-});
-
-const myChart3 = new Chart(ctx3, {
-  type: 'doughnut',
-  data: {
-    labels: [
-      'Prepare',
-      'Delivery',
-      'Done',
-    ],
-    datasets: [{
-      label: 'Order Status',
-      data: [18, 23, 100],
-      backgroundColor: [
-        'rgb(255, 99, 132)',
-        'rgb(54, 162, 235)',
-        'rgb(255, 205, 86)',
-      ],
-      hoverOffset: 4,
-    }],
   },
 });
 
